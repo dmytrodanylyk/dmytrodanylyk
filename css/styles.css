@@ -1,28 +1,29 @@
 body {
     padding: 15px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     color: #000;
     font-weight: 400;
 }
 
 h1 {
     margin: 20px 0px;
-    font-family: 'Abril Fatface', cursive;
-    font-size: 64px;
+    font-family: 'Roboto', cursive;
+    font-weight: 300;
+    font-size: 48px;
 }
 
 h2 {
     margin: 20px 0px;
-    font-family: 'Abril Fatface', cursive;
-    font-size: 48px;
+    font-family: 'Roboto', cursive;
+    font-size: 24px;
 }
 
 h5 {
-    margin: 30px 0px 15px 0;
-    font-family: 'Open Sans', sans-serif;
+    margin: 20px 0px 15px 0;
+    font-family: 'Roboto', sans-serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 p {
