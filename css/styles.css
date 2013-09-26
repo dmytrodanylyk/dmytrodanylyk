@@ -8,22 +8,23 @@ body {
 
 h1 {
     margin: 20px 0px;
-    font-family: 'Roboto', cursive;
-    font-weight: 300;
-    font-size: 48px;
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 400;
+    font-size: 52px;
 }
 
 h2 {
     margin: 20px 0px;
-    font-family: 'Roboto', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     font-size: 24px;
 }
 
 h5 {
     margin: 20px 0px 15px 0;
     font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 16px;
 }
 
 p {
@@ -34,6 +35,7 @@ p {
 a {
     color: #33B5E5;
     font-style: italic;
+    text-decoration: none;
 }
 
 a:hover {
@@ -43,12 +45,14 @@ a:hover {
 
 p.intro {
     margin: 20px 0 20px 0;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
+    font-style: italic;
 }
 
 hr {
-    height: 1px;
+    border: 0;
+    border-top: 1px solid #eee;
     margin-top: 15px;
     margin-bottom: 15px;
 }
@@ -81,11 +85,8 @@ hr {
     font-weight: 400;
 }
 
-@media (max-width: 991px) {
-}
-
-@media (max-width: 767px) {
-}
-
-@media (max-width: 479px) {
+.container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
