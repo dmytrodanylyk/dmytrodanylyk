@@ -2,8 +2,9 @@ body {
     padding: 15px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    color: #000;
+    color: #222;
     font-weight: 400;
+    background-color: #F9F9F9;
 }
 
 h1 {
@@ -41,6 +42,10 @@ a {
 a:hover {
     text-decoration: underline;
     color: #33B5E5;
+}
+
+li {
+    margin: 0 0 5px;
 }
 
 p.intro {

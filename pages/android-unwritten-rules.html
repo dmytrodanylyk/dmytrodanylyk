@@ -1,0 +1,170 @@
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>Android Development Unwritten Requirements</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+<div class="container">
+    <h1>Android Development Unwritten Requirements</h1>
+
+    <p class="date">September 18th, 2013</p>
+    <hr>
+
+    <p class="intro">
+        During my career as android platform software developer at <a href="http://lemberg.co.uk/">Lemberg Solutions</a> we agreed to follow some rules which I want you to tell
+        about.
+    </p>
+
+    <h2>code style</h2>
+
+    <p>We are writing our code according to <a href="http://source.android.com/source/code-style.html">Android Code Style Guidelines</a> and using <a
+            href="https://github.com/android/platform_development/tree/master/ide">Android Code Style Rules Formatter</a> to auto-format code.</p>
+
+    <h5>How to setup a formatter for your IDE?</h5>
+
+    There are pre-made formatter rules available from <a href="https://github.com/android/platform_development">github.com/android/platform_development</a> repository.
+
+    <h5>Android Studio / IntelliJ IDEA</h5>
+
+    <p>Copy <a href="https://github.com/android/platform_development/blob/master/ide/intellij/codestyles/AndroidStyle.xml">AndroidStyle.xml</a> file to your config folder, example
+        of it's location on my Windows 7 is below:</p>
+
+    <pre class="codeblock">C:\Users\Dmytro Danylyk\.IntelliJIdea12\config\codestyles <br>C:\Users\Dmytro Danylyk\.AndroidStudioPreview\config\codestyles</pre>
+
+    <p>Startup your IntelliJ IDEA and turn on formatting:</p>
+
+    <pre class="codeblock">File - Settings - Code Style - Schema - AndroidStyle</pre>
+
+    <p><strong>Note:</strong> There is a bug in <em>AndroidStyle.xml</em>
+        which adds blank lines to all your fields, to fix this, do the following.</p>
+
+    Open <em>AndroidStyle.xml</em> file, find this line:
+
+    <pre class="codeblock">name="BLANK_LINES_AROUND_FIELD" value="1"</pre>
+
+    Replace it with this line:
+
+    <pre class="codeblock">name="BLANK_LINES_AROUND_FIELD" value="0"</pre>
+
+    <h5>Eclipse</h5>
+
+    Download <a href="https://github.com/android/platform_development/blob/master/ide/eclipse/android-formatting.xml">android-formatting.xml</a> file, startup your Eclipse IDE and
+    turn on formatting:
+
+    <pre class="codeblock">Menu bar -> Window -> Preferences -> Java -> Code Style -> Formatter -> Import</pre>
+
+    <h2>annotations</h2>
+
+    <p>We are using <span class="code">@Nullable</span> and <span class="code">@NotNull</span> jetbrains <a
+            href="http://mvnrepository.com/artifact/com.intellij/annotations/9.0.4">annotations</a> library.</p>
+
+    <h5>Why do we use it?</h5>
+
+    <p>Two annotations - <span class="code">@Nullable</span> and <span class="code">@NotNull</span> - handle method invocations and field dereferences outside methods.</p>
+
+    <p>The <span class="code">@NotNull</span> annotation is, actually, an explicit contrast declaring the following:
+    <ul>
+        <li>a method should not return null</li>
+        <li>a variable (like fields, local variables, and parameters) cannot hold the null value</li>
+    </ul>
+    </p>
+
+    <p>The <span class="code">@Nullable</span> annotation reminds you about necessity to introduce a NPE check when:
+    <ul>
+        <li>calling methods that can return null</li>
+        <li>dereferencing variables (fields, local variables, parameters) that can be null</li>
+    </ul>
+    </p>
+
+    <p>IntelliJ IDEA warns you if these contracts are violated. More details <a href="http://www.jetbrains.com/idea/documentation/howto.html">here</a>.</p>
+
+    <h2>project.info file</h2>
+
+    <p> For every project we create simple project.info text file and fill it with following information:</p>
+    <ul>
+        <li>few lines of description, what this project is all about</li>
+        <li>line about <em>code style & formatter</em>, if you are using custom include it</li>
+        <li>few lines about what <em>libraries</em> you are using</li>
+        <li>line about <em>logger</em>, very commonly all projects have their own log wrapper class</li>
+        <li>few lines about what <em>Patterns</em> you have used and where (especially <em>Singletons</em>)</li>
+        <li>few lines about main parts of your application like <em>image loader, http client, database etc.</em></li>
+    </ul>
+
+    <h5>How does this help?</h5>
+
+    <p>When new developer is attached to the project or after few months of working on other project, you are back - <em>project.info</em> file helps to get fammiliar with whole
+        project structure and dive into development very quickly
+    </p>
+
+    <p>Below is a quick example of <em>project.info</em> file to show you basic idea.</p>
+
+    <pre class="codeblock">
+        Project name: Stacy
+        Description: Application is displaying weather using openweathermap.org API.
+
+        All source code is formatted according to the Android Code Style Rules Formatter
+        git clone https://github.com/android/platform_development/tree/master/ide
+
+        Project uses jetbrains @NotNull and @Nullable annotations library - annotations.jar
+
+        Project uses Volley library as http client - voley.jar
+        git clone https://android.googlesource.com/platform/frameworks/volley
+
+        Project uses wrapper for logger - com.ls.utils.L.java
+        Note: 'd' and 'v' logs are NOT logged in release build.
+
+        We used Singleton pattern to implement http request queue (see com.ls.model.http.HttpRequest.java)
+    </pre>
+
+    <h2>gitignore</h2>
+
+    <p>It is very important to keep your project clean and <a href="http://git-scm.com/docs/gitignore">.gitignore</a> is your saviour. We are using great service
+        <a href="http://gitignore.io/">gitignore.io</a> to generate ready <em>.gitignore</em> files.</p>
+
+    <p>Example of <em>.gitignore</em> file for android <a href="http://gitignore.io/api/android">gitignore.io/api/android</a></p>
+
+    <h2>libraries & frameworks</h2>
+
+    <p>Keeping up to date with existing libraries and frameworks will show you much easier and faster way of moving forward. Here is our most-used list.</p>
+
+    <ul>
+        <li>many custom views you can find on <a href="http://www.androidviews.net/">androidviews.net</a></li>
+        <li>great http client from google - <a href="https://android.googlesource.com/platform/frameworks/volley/">Volley</a></li>
+        <li>powerful image downloading and caching library - <a href="http://square.github.io/picasso/">Picasso</a></li>
+        <li>utilities that helps in design and development - <a href="http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html">Android Asset Studio</a></li>
+        <li>the fastest android emulator for app testing and presentation - <a href="http://www.genymotion.com/">Genymotion</a></li>
+    </ul>
+
+    <h2>missing things</h2>
+
+    <p>I missed some things which I want to cover in separate articles.</p>
+
+    <ul>
+        <li>Code Quality & Code Analyzers</li>
+        <li> Design Patterns & KISS Design Principle</li>
+        <li>Unit Tests - Great way to ensure your code works properly</li>
+    </ul>
+
+    <hr>
+
+    <p class="intro">Now you know how Android Developers from <a href="http://lemberg.co.uk/">Lemberg Solutions</a> handle stuff. If you have any questions or suggestions - you
+        are welcome.</p>
+
+</div>
+</body>
+
+<script>
+    var all_links = document.getElementsByTagName('a');
+    for (var i = 0, len = all_links.length; i < len; i++) {
+        all_links[i].target = "_blank";
+    }
+</script>
+
+</html>
