@@ -8,7 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Abril+Fatface' rel='stylesheet' type='text/css'>
 
-    <!--Google Analytics-->
+    <!--Google Analytics start-->
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -26,13 +26,40 @@
         ga('send', 'pageview');
 
     </script>
+    <!--Google Analytics end-->
 </head>
 
 <body>
 <div class="container">
     <h1>Android Development Unwritten Requirements</h1>
 
-    <p class="date">September 18th, 2013</p>
+    <div>
+
+        <p class="date">September 18th, 2013</p>
+
+        <!--Social-->
+        <div id="share-buttons" style="text-align: right">
+
+            <!-- Facebook -->
+            <a href="http://www.facebook.com/sharer.php?u=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html" target="_blank">
+                <img src="../images/social/facebook.png" alt="Facebook"/></a>
+
+            <!-- Twitter -->
+            <a href="http://twitter.com/share?url=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html&text=Android Development Unwritten Requirements"
+               target="_blank"><img src="../images/social/twitter.png" alt="Twitter"/></a>
+
+            <!-- Google+ -->
+            <a href="https://plus.google.com/share?url=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html" target="_blank">
+                <img src="../images/social/google_plus.png" alt="Google"/></a>
+
+            <!-- LinkedIn -->
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html" target="_blank">
+                <img src="../images/social/linkedin.png" alt="LinkedIn"/></a>
+
+        </div>
+
+    </div>
+
     <hr>
 
     <p class="intro">
@@ -175,28 +202,7 @@
     <p class="intro">Now you know how Android Developers from <a href="http://lemberg.co.uk/">Lemberg Solutions</a> handle stuff. If you have any questions or suggestions - you
         are welcome.</p>
 
-    <!--Social-->
-    <div id="share-buttons">
-
-        <!-- Facebook -->
-        <a href="http://www.facebook.com/sharer.php?u=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html" target="_blank">
-            <img src="../images/social/facebook.png" alt="Facebook"/></a>
-
-        <!-- Twitter -->
-        <a href="http://twitter.com/share?url=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html&text=Android Development Unwritten Requirements"
-           target="_blank"><img src="../images/social/twitter.png" alt="Twitter"/></a>
-
-        <!-- Google+ -->
-        <a href="https://plus.google.com/share?url=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html" target="_blank">
-            <img src="../images/social/google_plus.png" alt="Google"/></a>
-
-        <!-- LinkedIn -->
-        <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://dmytrodanylyk.github.io/dmytrodanylyk/pages/android-unwritten-rules.html" target="_blank">
-            <img src="../images/social/linkedin.png" alt="LinkedIn"/></a>
-
-    </div>
-
-    <!--Disqus Comments-->
+    <!--Disqus Comments start-->
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -211,17 +217,18 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <!--Disqus Comments end-->
 
 </div>
 </body>
 
+<!--Make all links open in new window start-->
 <script>
     var all_links = document.getElementsByTagName('a');
     for (var i = 0, len = all_links.length; i < len; i++) {
         all_links[i].target = "_blank";
     }
 </script>
+<!--Make all links open in new window end-->
 
 </html>
