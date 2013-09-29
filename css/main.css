@@ -102,6 +102,13 @@ hr {
     margin-right: auto;
 }
 
+p.article-list {
+    margin: 20px 0 20px 0;
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+}
+
 #share-buttons img {
     width: 35px;
     padding: 5px;
