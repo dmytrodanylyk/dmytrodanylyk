@@ -24,6 +24,13 @@ h2 {
     color: #222;
 }
 
+h4 {
+    margin: 30px 0 15px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
 h5 {
     margin: 30px 0 15px 0;
     font-family: 'Roboto', sans-serif;
@@ -56,6 +63,12 @@ a:active {
 
 li {
     margin: 0 0 5px;
+}
+
+p.blue {
+    margin-bottom: 10px;
+    float: none;
+    color: #33B5E5;
 }
 
 p.intro {
@@ -114,4 +127,11 @@ p.article-list {
     padding: 5px;
     border: 0;
     display: inline;
+}
+
+img.avatar {
+    float: right;
+    border: 1px solid #999;
+    width: 128px;
+    height: 128px;
 }
