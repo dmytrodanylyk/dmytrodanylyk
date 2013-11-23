@@ -102,17 +102,64 @@ Leak found
 Caused by: java.lang.IllegalStateException: SQLiteDatabase created and never closed
 ```
 
-Correct way is to update our `DatabaseManager` method `getDatabase()`
+Working sample
+-----------------
 
 ```java
-public SQLiteDatabase getDatabase() {
-  SQLiteDatabase database = mDatabaseHelper.getWritableDatabase();
-  database.acquireReference();
-  return database;
+public class DatabaseManager {
+
+    private AtomicInteger mOpenCounter = new AtomicInteger();
+
+    private static DatabaseManager instance;
+    private static SQLiteOpenHelper mDatabaseHelper;
+    private SQLiteDatabase mDatabase;
+
+    public static synchronized void initializeInstance(SQLiteOpenHelper helper) {
+        if (instance == null) {
+            instance = new DatabaseManager();
+            mDatabaseHelper = helper;
+        }
+    }
+
+    public static synchronized DatabaseManager getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException(DatabaseManager.class.getSimpleName() +
+                    " is not initialized, call initializeInstance(..) method first.");
+        }
+
+        return instance;
+    }
+
+    public SQLiteDatabase openDatabase() {
+        if(mOpenCounter.incrementAndGet() == 1) {
+            // Opening new database
+            mDatabase = mDatabaseHelper.getWritableDatabase();
+        }
+        return mDatabase;
+    }
+
+    public void closeDatabase() {
+        if(mOpenCounter.decrementAndGet() == 0) {
+            // Closing database
+            mDatabase.close();
+            
+        }
+    }
 }
 ```
+    
+And use it as follows.
 
-As you can see we are now calling [acquireReference()][3] method which will increase database reference counter. Method [close()][4] of `SQLiteDatabase` automatically check reference counter and close database only when reference counter is zero.
+    SQLiteDatabase database = DatabaseManager.getInstance().openDatabase();
+    database.insert(...);
+    // database.close(); Don't close it directly!
+    DatabaseManager.getInstance().closeDatabase(); // correct way
+    
+Every time you need database you should call *openDatabase()* method of *DatabaseManager* class. Inside this method, we have a counter, which indicate how many times database is opened. If it equals to one, it means we need to create new database, if not, database is already created. 
+
+The same happens in *closeDatabase()* method. Every time we call this method, counter is decreased, whenever it goes to zero, we are closing database.
+
+**Note:** You should use [AtomicInteger][5] to deal with concurrency.
 
 ----------
 
@@ -123,3 +170,4 @@ Now you should be able to use your database and be sure - it's thread safe.
   [2]: http://stackoverflow.com/
   [3]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#acquireReference%28%29
   [4]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#close%28%29
+  [5]: http://developer.android.com/reference/java/util/concurrent/atomic/AtomicInteger.html
