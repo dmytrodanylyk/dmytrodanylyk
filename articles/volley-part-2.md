@@ -3,7 +3,7 @@
 - [Part 2 - Application Model][2]
 - [Part 3 - Image Loader][3]
 
-### Part 2 - Application Model Example
+### Part 2 - Application Model
 
 > Do I need to instantiate request queue in each Service or Activity? 
 
