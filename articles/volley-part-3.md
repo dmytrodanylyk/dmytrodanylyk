@@ -174,6 +174,6 @@ Response.Listener<Bitmap> listener = new Response.Listener<Bitmap>() {
 **Note:** Volley decides whether to cache response or not based only on headers *"Cache-Control"* and *"Expires"*
 
 
-  [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/edit/gh-pages/articles/volley-part-1.md
-  [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/edit/gh-pages/articles/volley-part-2.md
-  [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/edit/gh-pages/articles/volley-part-3.md
+  [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
+  [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
+  [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
