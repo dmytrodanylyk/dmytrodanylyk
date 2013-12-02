@@ -1,4 +1,4 @@
-![Volley request diagram][6]
+![Concurrent Database Access][6]
 
 Concurrent Database Access
 --------------------------

@@ -1,3 +1,5 @@
+![Image Loader][4]
+
 ### Volley - Android HTTP client
 - [Part 1 - Quickstart][1]
 - [Part 2 - Application Model][2]
@@ -177,3 +179,4 @@ Response.Listener<Bitmap> listener = new Response.Listener<Bitmap>() {
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
   [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
   [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
+  [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/volley-part-3.png
