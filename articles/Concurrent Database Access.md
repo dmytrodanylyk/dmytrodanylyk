@@ -1,3 +1,5 @@
+![Volley request diagram][6]
+
 Concurrent Database Access
 --------------------------
 
@@ -171,3 +173,4 @@ Now you should be able to use your database and be sure - it's thread safe.
   [3]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#acquireReference%28%29
   [4]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#close%28%29
   [5]: http://developer.android.com/reference/java/util/concurrent/atomic/AtomicInteger.html
+  [6]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/concurrent-db-access.png
