@@ -7,6 +7,12 @@
 
 ### Part 1 - Quickstart
 
+### Were I can get it?
+
+Download volley library and import it as a library project or make jar file.
+```
+git clone https://android.googlesource.com/platform/frameworks/volley
+```
 #### Why Volley?
 - Simple
 - Powerful
