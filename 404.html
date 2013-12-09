@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <title>404: Page not found</title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap.css" id="bootstrap.css">
+    <script src="/document.min.js" id="DOC" editable="false"></script>
+    <script src="/github.js"></script>
+    <style>#default404{display:none;}</style>
+    <noscript><style>#default404{display:block;}</style></noscript>
+    <script type="text/javascript">
+        
+        // const*
+        var multilingual_repos = ['/docs/'],  // multilingual repositories /docs/en/
+            singlelang_repos = ['/docs-ru/']; // single-language repositories
+        
+        var path = window.location.pathname;
+        
+        // ^/docs*$ redirect to /docs*/
+        var loc = path + '/';
+        if (multilingual_repos.indexOf(loc) >= 0 || singlelang_repos.indexOf(loc) >= 0)
+            window.location = loc;
+        else {
+            var def = true;
+            for(var i in multilingual_repos) {
+                var repo = multilingual_repos[i];
+                if (path.substr(0, repo.length) === repo) {
+                    path = path.split('/').slice(0,3).join('/');
+                    $DOC.appendScript(path + '/404.js');
+                    $DOC.appendScript(path + '/user.js');
+                    def = false;
+                }
+            }
+            for(var i in singlelang_repos) {
+                var repo = singlelang_repos[i];
+                if (path.substr(0, repo.length) === repo) {
+                    path = path.split('/').slice(0,2).join('/');
+                    $DOC.appendScript(path + '/404.js');
+                    $DOC.appendScript(path + '/user.js');
+                    def = false;
+                }
+            }
+            if (def)
+                $DOC.appendCSS('#default404{display:block;}');
+        }
+    </script>
+</head>
+<body>
+    <div id="default404" style="margin:64px; margin-top:32px;">
+        <h1 style="margin-bottom:20px;">404: Страница не найдена</h1>
+    </div>
+    <!--fixed-top-bar-->
+    <!--!header-panel-->
+    <!--content-panel-->
+    <!--right-side-panel -->
+    <!--footer-panel-->
+</body>
+</html>
+
