@@ -114,7 +114,7 @@ private static final int DEFAULT_DISK_USAGE_BYTES = 25 * 1024 * 1024;
 private static final String DEFAULT_CACHE_DIR = "photos";
 
 // Most code copied from "Volley.newRequestQueue(..)", we only changed cache directory
-private static RequestQueue.newRequestQueue()(Context context) {
+private static RequestQueue newRequestQueue()(Context context) {
     // define cache folder
     File rootCache = context.getExternalCacheDir();
     if (rootCache == null) {
