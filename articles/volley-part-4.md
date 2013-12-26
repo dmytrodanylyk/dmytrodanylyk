@@ -3,8 +3,9 @@
 - [Part 1 - Quickstart][1]
 - [Part 2 - Application Model][2]
 - [Part 3 - Image Loader][3]
+- [Part 4 - Common Questions][4]
 
-### Part 4 - Common questions
+### Part 4 - Common Questions
 
 #### How to set request pool size?
 
@@ -115,3 +116,4 @@ Don't forget to switch to UI thread when parsing is done.
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
   [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
   [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
+  [4]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-4.md
