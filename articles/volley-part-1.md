@@ -4,6 +4,7 @@
 - [Part 1 - Quickstart][1]
 - [Part 2 - Application Model][2]
 - [Part 3 - Image Loader][3]
+- [Part 4 - Common Questions][6]
 
 ### Part 1 - Quickstart
 
@@ -186,3 +187,4 @@ requestQueue.cancelAll("weather-screen"); // cancel all requests with "weather-s
   [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
   [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/volley-diagram.png
   [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/volley-part-1.png
+  [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-4.md
