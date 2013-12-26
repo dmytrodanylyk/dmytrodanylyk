@@ -51,6 +51,12 @@ When you are executing new request, you pass two listeners: success and error. B
         @Override
         public void onResponse(JSONObject response) {
             // UI thread, need to parse response in separate thread :(
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    // do parsing     
+                }
+            });
         }
     };
 ```   
@@ -89,7 +95,23 @@ If you want to fix this, and make all your request listeners trigger in non UI t
         
         return queue;
     }
-```    
+```
+
+Don't forget to switch to UI thread when parsing is done.
+```java     
+    Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
+        @Override
+        public void onResponse(JSONObject response) {
+            // not UI thread, do parsing
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    // update view
+                }
+            });
+        }
+    };
+```
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
   [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
   [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
