@@ -22,7 +22,7 @@ We have view for this!
 
 Just set up url and image loader.
 ```java 
-NetworkImageView imgAvatar = (NetworkImageView) findViewById(R.id.imgAvatar);
+NetworkImageView imageView = (NetworkImageView) findViewById(R.id.imageView);
 imageView.setImageUrl(url, imageLoader);
 imageView.setDefaultImageResId(..);
 imageView.setErrorImageResId(..);
