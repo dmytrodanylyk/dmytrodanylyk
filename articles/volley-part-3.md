@@ -14,7 +14,7 @@ We have view for this!
 
 ```xml 
 <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/imgAvatar"
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"/>
@@ -85,13 +85,13 @@ ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(context), image
 ```
 ```xml 
 <com.android.volley.toolbox.NetworkImageView
-    android:id="@+id/imgAvatar"
+    android:id="@+id/imageView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:scaleType="centerCrop"/>
 ```
 ```java
-NetworkImageView imgAvatar = (NetworkImageView) findViewById(R.id.imgAvatar);
+NetworkImageView imageView = (NetworkImageView) findViewById(R.id.imageView);
 imageView.setImageUrl(url, imageLoader);
 ```
 
@@ -144,13 +144,13 @@ ImageLoader imageLoader = new ImageLoader(newRequestQueue(context), imageCache);
 ```
 ```xml 
 <com.android.volley.toolbox.NetworkImageView
-    android:id="@+id/imgAvatar"
+    android:id="@+id/imageView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:scaleType="centerCrop"/>
 ```
 ```java
-NetworkImageView imgAvatar = (NetworkImageView) findViewById(R.id.imgAvatar);
+NetworkImageView imageView = (NetworkImageView) findViewById(R.id.imageView);
 imageView.setImageUrl(url, imageLoader);
 ```
 
