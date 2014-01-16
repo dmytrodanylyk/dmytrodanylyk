@@ -2,13 +2,13 @@
 
 ### Playing video from assets
 
-This tutorial describes how to use [TextureView][1] to load and play video from *assets* folder. For this you need video sample file which is included in project zip folder.
+This tutorial describes how to use [TextureView][1] to load and play video from *assets* folder. For this you need video sample file which you can get [here][6].
 
 #### Step 1 - Preparing
 
 Create android project and target android version 4.0. Remember that *TextureView* is available since [API level 14][2]
 
-Make sure you have following lines in your AndroidManifest.xml file.
+Make sure you have following lines in your *AndroidManifest.xml* file.
 ```xml
 <uses-sdk
     android:minSdkVersion="14"
@@ -186,3 +186,4 @@ Now you can launch application. Remember you need Emulator or device with **Andr
   [3]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-uml-1.png
   [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-screenshot-1.png
   [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-play-video.png
+  [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
