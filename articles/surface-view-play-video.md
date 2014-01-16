@@ -1,6 +1,8 @@
 ![Screenshot][5]
 
-### Playing video from assets
+### Surface View - Playing video
+
+#### Playing video from assets folder
 
 This tutorial describes how to use [TextureView][1] to load and play video from *assets* folder. For this you need video sample file which you can get [here][6].
 
@@ -180,6 +182,81 @@ protected void onDestroy() {
 Now you can launch application. Remember you need Emulator or device with **Android version 4.0 or higher**. Here is screenshot of how it should look like. Video is centered, starts playing automatically and loop. When activity is destroyed video is stopped and resources are released.
 
 ![Screenshot][4]
+
+
+----------
+
+
+#### Playing video from url
+
+This tutorial shows how to use TextureView to load and play video from url.
+
+**Important:** almost all code is the same as in **Playing video from assets tutorial**, so you need to complete it first and here I will describe which lines of code you need to modify.
+
+#### Step 1 - Preparing
+
+As we are going to play video from internet we need to add internet permission to *AndroidManifest.xml file*.
+
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+#### Step 2 - XML
+The same as in **Playing video from assets** tutorial except video coping part.
+
+#### Step 3 - Code
+
+The same as in **Playing video from assets** tutorial plus additional changes.
+
+Our file url variable now should point to video url file.
+```java
+private static final String FILE_URL = "http://www.w3schools.com/html/mov_bbb.mp4";
+```
+Next change is inside *onSurfaceTextureAvailable* listener. Delete here two line which are responsible for playing asset video, and add one line which set data source to video url.
+```java
+@Override
+public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+    Surface surface = new Surface(surfaceTexture);
+
+    try {
+        AssetFileDescriptor afd = getAssets().openFd(FILE_NAME);
+        mMediaPlayer = new MediaPlayer();
+        mMediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+        mMediaPlayer.setDataSource(getApplicationContext(), Uri.parse(FILE_URL));
+        mMediaPlayer.setSurface(surface);
+        mMediaPlayer.setLooping(true);
+
+        mMediaPlayer.prepareAsync();
+
+        // Play video when the media source is ready for playback.
+        mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.start();
+            }
+        });
+
+    } catch (IllegalArgumentException e) {
+        Log.d(TAG, e.getMessage());
+    } catch (SecurityException e) {
+        Log.d(TAG, e.getMessage());
+    } catch (IllegalStateException e) {
+        Log.d(TAG, e.getMessage());
+    } catch (IOException e) {
+        Log.d(TAG, e.getMessage());
+    }
+}
+```
+
+#### Step 4 - Memory cleanup
+
+The same as in **Playing video from assets** tutorial.
+
+#### Step 5 - Launch
+
+The same as in Playing video from assets tutorial, but keep in mind you need internet connection. Also note we didn’t put any code which check network state. In real application you should first check if internet connection is available.
+
+
 
   [1]: http://developer.android.com/reference/android/view/TextureView.html
   [2]: http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels
