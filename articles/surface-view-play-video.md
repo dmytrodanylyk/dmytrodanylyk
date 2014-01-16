@@ -1,5 +1,9 @@
 ![Screenshot][5]
 
+### Surface View
+- [Part 1 - Intro][7]
+- [Part 2 - Playing video][8]
+
 ### Surface View - Playing video
 
 #### Playing video from assets folder
@@ -264,3 +268,5 @@ The same as in Playing video from assets tutorial, but keep in mind you need int
   [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-screenshot-1.png
   [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-play-video.png
   [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
+  [7]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
+  [8]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
