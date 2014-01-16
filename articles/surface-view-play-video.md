@@ -161,7 +161,7 @@ public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int 
 Some explanation about what is happening here. We are using *AssetFileDescriptor* to open video file from assets folder. *MediaPlayer* object is used to control video file, so we are packaging things like surface and data source inside. We also set looping flag to true, to make video automatically restarts when it is over. The last part is to set *onPreparedListener* and call *MediaPlayer.prepareAsync()* method which fire *onPrepared* event when we can start video playback.
 
 **Tip**
-> Don't forget to call *MediaPlayer.prepareAsync()* method when you use constructor for creating *MediaPlayer* object and if you > use *MediaPlayer.create(...)* factory method *MediaPlayer.prepareAsync()* is called automatically.
+> Don't forget to call *MediaPlayer.prepareAsync()* method when you use constructor for creating *MediaPlayer* object and if you use *MediaPlayer.create(...)* factory method *MediaPlayer.prepareAsync()* is called automatically.
 
 #### Step 4 - Memory cleanup
 
