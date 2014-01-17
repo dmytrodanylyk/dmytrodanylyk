@@ -3,6 +3,7 @@
 ### Surface View
 - [Part 1 - Intro][7]
 - [Part 2 - Playing video][8]
+- [Part 3 - Video Cropping][9]
 
 ### Surface View - Playing video
 
@@ -270,3 +271,4 @@ The same as in Playing video from assets tutorial, but keep in mind you need int
   [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
   [7]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
   [8]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
+  [9]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md
