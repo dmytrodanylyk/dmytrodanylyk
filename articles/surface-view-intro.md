@@ -3,6 +3,7 @@
 ### Surface View
 - [Part 1 - Intro][6]
 - [Part 2 - Playing video][7]
+- [Part 3 - Video Cropping][8]
 
 ### Surface View - Intro
 
@@ -34,3 +35,4 @@ Unlike *SurfaceView*, *TextureView* does not create a separate window but behave
   [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-intro.png
   [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
   [7]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
+  [8]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md
