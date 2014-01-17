@@ -310,4 +310,4 @@ When you launch application you should notice that now video is cropped and corr
   [10]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-video-cropping.png
   [11]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
   [12]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
-  [13]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/video-cropping.md
+  [13]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md
