@@ -4,7 +4,7 @@
 - [Part 1 - Intro][6]
 - [Part 2 - Playing video][7]
 
-### Surface View - Intro
+### Intro
 
 **Before Android 4.0** we were forced to use [SurfaceView][1] to deal with camera, [GLSurfaceView][2] to display *OpenGL* rendering and [VideoView][3] to play video.Two last are direct child of [SurfaceView][4]. Thats fine until you find out that surface view creates a new window, placed behind your application’s window, to manage content.
 
