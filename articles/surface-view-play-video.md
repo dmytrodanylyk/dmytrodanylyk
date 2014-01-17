@@ -4,7 +4,7 @@
 - [Part 1 - Intro][7]
 - [Part 2 - Playing video][8]
 
-### Surface View - Playing video
+### Playing video
 
 #### Playing video from assets folder
 
