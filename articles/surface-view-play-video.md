@@ -5,7 +5,7 @@
 - [Part 2 - Playing video][8]
 - [Part 3 - Video Cropping][9]
 
-### Surface View - Playing video
+### Playing video
 
 #### Playing video from assets folder
 
