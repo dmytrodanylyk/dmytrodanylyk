@@ -5,7 +5,7 @@
 - [Part 2 - Playing video][12]
 - [Part 3 - Video Cropping][13]
 
-### Surface View - Video Cropping
+### Video Cropping
 
 In this tutorial we are going to create application which will do following:
 
