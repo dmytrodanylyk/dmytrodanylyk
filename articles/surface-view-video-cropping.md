@@ -68,7 +68,7 @@ In your layout folder create *texture_video_crop.xml* file and add following lin
 ```
 **Note:** *TextView* is only indicator of our video original size.
 
-Step 3 - Basic code
+#### Step 3 - Basic code
 
 Create a new activity class and call it VideoCropActivity. Don’t forget to declare it inside AndroidManifest.xml file.
 
