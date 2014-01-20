@@ -261,6 +261,7 @@ private void updateTextureViewSize(int viewWidth, int viewHeight) {
 ```
 
 Now you can launch application and check the results. As you can see view size is changed, however video itself is stretched. Next task is to fix this.
+
 ![video crop 1][9]
 
 #### Step 5 - Video cropping
