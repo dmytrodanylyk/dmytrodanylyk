@@ -14,8 +14,8 @@ In this tutorial we are going to create application which will do following:
 
 #### Final Results
 
-![video crop 1][2] ![video crop 2][3]
-![video crop 3][4] ![video crop 4][5]
+![video crop 1][2] &ensp; ![video crop 2][3]
+![video crop 3][4] &ensp; ![video crop 4][5]
 
 #### Step 1 - Preparing
 
