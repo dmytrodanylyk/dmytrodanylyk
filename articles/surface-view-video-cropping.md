@@ -10,7 +10,7 @@
 In this tutorial we are going to create application which will do following:
 
 - display video from assets folder using *TextureView*
-- when user click on screen, *TextureView* should be resized and video should be cropped to match new view size
+- when user click on screen, *TextureView* must resize itself and video should be cropped to match new view size
 
 #### Final Results
 
