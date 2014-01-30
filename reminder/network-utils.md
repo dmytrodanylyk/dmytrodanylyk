@@ -1,6 +1,6 @@
 Android helper class to check network connection.
 
-*Note:* all methods are `public statis`.
+*Note:* all methods are `public static`.
 
 ````java
 public final class NetworkUtils {
