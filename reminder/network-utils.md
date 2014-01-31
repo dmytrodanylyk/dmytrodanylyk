@@ -1,6 +1,6 @@
 Android helper class to check network connection.
 
-*Note:* all methods are `public static`.
+**Source**
 
 ````java
 public final class NetworkUtils {
@@ -27,3 +27,16 @@ public final class NetworkUtils {
 	}
 }
 ````
+
+**Example**
+
+````java
+// check if any network is available
+boolean isNetworkAvailable = NetworkUtils.isOn(getApplicationContext());
+
+// only check if WiFi is available
+boolean isNetworkAvailable = NetworkUtils.isWIFIOn(getApplicationContext());
+
+// only check if mobile network is available
+boolean isNetworkAvailable = NetworkUtils.isMobileOn(getApplicationContext());
+```
