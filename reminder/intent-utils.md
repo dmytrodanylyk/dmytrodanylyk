@@ -1,6 +1,6 @@
-Android helper class to start intent with third part application, like send email, send sms, open link in browser or perform call.
+Android helper class to start third part application with intent, like *Send Email*, *Send SMS*, open link in *Browser* or Perform *Call*.
 
-**Note:** all methods are `public static`.
+**Source**
 
 ```java
 public class IntentUtils {
