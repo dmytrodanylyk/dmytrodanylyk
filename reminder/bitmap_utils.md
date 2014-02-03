@@ -1,5 +1,26 @@
 Android helper class which extends `BitmapFactory` and add additional methods to work with Bitmaps.
 
+**Example**
+
+```java
+// Load bitmap from Uri
+Bitmap bitmap = BitmapUtils.decodeUri(context, fileUri);
+
+// Load bitmap from path and scale it but keeps both
+// height and width larger than the requested height and width
+Bitmap bitmap = BitmapUtils.decodeFile(path, 480, 800);
+
+// Load bitmap from resource and scale it but keeps both
+// height and width larger than the requested height and width
+Bitmap bitmap = BitmapUtils.decodeResources(res, 0, 0);
+
+// Load bitmap from Uri and auto rotate to correct angle
+Bitmap bitmap = BitmapUtils.rotateBitmap(fileUri, originalBitmap);
+
+// Save bitmap to file
+BitmapUtils.save(bitmap, fileUri);
+```
+
 **Source**
 
 ```java
@@ -148,25 +169,4 @@ public class BitmapUtils extends BitmapFactory {
         return inSampleSize;
     }
 }
-```
-
-**Example**
-
-```java
-// Load bitmap from Uri
-Bitmap bitmap = BitmapUtils.decodeUri(context, fileUri);
-
-// Load bitmap from path and scale it but keeps both
-// height and width larger than the requested height and width
-Bitmap bitmap = BitmapUtils.decodeFile(path, 480, 800);
-
-// Load bitmap from resource and scale it but keeps both
-// height and width larger than the requested height and width
-Bitmap bitmap = BitmapUtils.decodeResources(res, 0, 0);
-
-// Load bitmap from Uri and auto rotate to correct angle
-Bitmap bitmap = BitmapUtils.rotateBitmap(fileUri, originalBitmap);
-
-// Save bitmap to file
-BitmapUtils.save(bitmap, fileUri);
 ```
