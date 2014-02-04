@@ -141,3 +141,28 @@ public final class L {
     }
 }
 ```
+
+
+**Addition**
+
+How to override Uncaught Exception?
+
+```java
+
+Thread.setDefaultUncaughtExceptionHandler(new DefaultUncaughtExceptionHandler());
+
+
+static class DefaultUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
+    private Thread.UncaughtExceptionHandler defaultUEH;
+
+    public DefaultUncaughtExceptionHandler() {
+        this.defaultUEH = Thread.getDefaultUncaughtExceptionHandler();
+    }
+
+    @Override
+    public void uncaughtException(Thread thread, Throwable cause) {
+        L.e("UncaughtException", cause);
+        defaultUEH.uncaughtException(thread, cause);
+    }
+}
+````
