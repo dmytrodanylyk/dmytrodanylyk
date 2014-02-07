@@ -132,7 +132,7 @@ public class DatabaseManager {
         return instance;
     }
 
-    public SQLiteDatabase openDatabase() {
+    public synchronized SQLiteDatabase openDatabase() {
         if(mOpenCounter.incrementAndGet() == 1) {
             // Opening new database
             mDatabase = mDatabaseHelper.getWritableDatabase();
@@ -140,7 +140,7 @@ public class DatabaseManager {
         return mDatabase;
     }
 
-    public void closeDatabase() {
+    public synchronized void closeDatabase() {
         if(mOpenCounter.decrementAndGet() == 0) {
             // Closing database
             mDatabase.close();
