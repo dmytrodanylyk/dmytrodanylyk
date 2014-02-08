@@ -3,7 +3,7 @@
 Concurrent Database Access
 --------------------------
 
-I wrote small article which describe how to make access to your android database thread safe.
+I wrote small article which describe how to make access to your android database thread safe. Sample project is available [here][7].
 
 ----------
 
@@ -173,3 +173,5 @@ Now you should be able to use your database and be sure - it's thread safe.
   [4]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#close%28%29
   [5]: http://developer.android.com/reference/java/util/concurrent/atomic/AtomicInteger.html
   [6]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/concurrent-db-access.png
+  [7]: https://github.com/dmytrodanylyk/android-concurrent-database
+  
