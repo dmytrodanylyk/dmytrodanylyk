@@ -63,7 +63,7 @@ public class DatabaseManager {
         return instance;
     }
 
-    public SQLiteDatabase getDatabase() {
+    public synchronized SQLiteDatabase getDatabase() {
         return new mDatabaseHelper.getWritableDatabase();
     }
 
