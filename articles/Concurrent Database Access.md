@@ -37,7 +37,7 @@ android.database.sqlite.SQLiteDatabaseLockedException: database is locked (code 
 
 This is happening because every time you create new `SQLiteOpenHelper` object you are actually making new database connection. If you try to write to the database from actual distinct connections at the same time, one will fail.
 
-### To use database with multiple threads we need to make sure we are using one database connection.
+#### To use database with multiple threads we need to make sure we are using one database connection.
 
 Let’s make singleton class `DatabaseManager` which will hold and return single `SQLiteOpenHelper` object.
 
@@ -97,15 +97,14 @@ java.lang.IllegalStateException: attempt to re-open an already-closed object: SQ
 
 Since we are using only one database connection, method `getDatabase()` return same instance of `SQLiteDatabase` object for `Thread1` and `Thread2`. What is happening, `Thread1` may close database, while `Thread2` is still using it. That’s why we have `IllegalStateException` crash.
 
-We need to make sure no-one is using database and only then close it. Some folks on [stackoveflow][2] recommended to never close your `SQLiteDatabase`. It not only sounds stupid but also honor you with following logcat message.
+We need to make sure no-one is using database and only then close it. Some folks on [stackoveflow][2] recommended to never close your `SQLiteDatabase`. This will honor you with following logcat message. So I don't think this is good idea at all.
 
 ```java
 Leak found
 Caused by: java.lang.IllegalStateException: SQLiteDatabase created and never closed
 ```
 
-Working sample
------------------
+#### Working sample
 
 ```java
 public class DatabaseManager {
@@ -157,9 +156,9 @@ And use it as follows.
     // database.close(); Don't close it directly!
     DatabaseManager.getInstance().closeDatabase(); // correct way
     
-Every time you need database you should call *openDatabase()* method of *DatabaseManager* class. Inside this method, we have a counter, which indicate how many times database is opened. If it equals to one, it means we need to create new database, if not, database is already created. 
+Every time you need database you should call `openDatabase()` method of `DatabaseManager` class. Inside this method, we have a counter, which indicate how many times database is opened. If it equals to one, it means we need to create new database, if not, database is already created. 
 
-The same happens in *closeDatabase()* method. Every time we call this method, counter is decreased, whenever it goes to zero, we are closing database.
+The same happens in `closeDatabase()` method. Every time we call this method, counter is decreased, whenever it goes to zero, we are closing database.
 
 **Note:** You should use [AtomicInteger][5] to deal with concurrency.
 
