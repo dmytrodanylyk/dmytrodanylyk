@@ -13,7 +13,7 @@ Quick list of issues:
     - Handle cancellation
 - Background intent issue
 - Encrypt credentials
-- Login Screen not necessarily should be MAIN
+- Login Screen is not always MAIN
 
 #### Network
 Every time user press *Login* button first you need to check if Network is available. 
@@ -79,7 +79,7 @@ Sample with `inputType="textEmailAddress"` and `inputType="textPassword"` attrib
 
 ![enter image description here][7] ![enter image description here][8]
 
-Notice, here we have two additional buttons `@` and `.com` to make email typing for user a lot easier, after typing `@` autocomplete shows three commonly used email domains: `gmail`, `hotmal`, `yahoo`. Also password field is now hidde and didn't suggest any autocompletion.
+**Notice**, here we have two additional buttons `@` and `.com` to make email typing for user a lot easier, after typing `@` symbol autocomplete shows three commonly used email domains: `gmail`, `hotmal`, `yahoo`. Also password field is now hidden and didn't suggest any autocompletion.
 
 #### Handle keyboard done button 
 
