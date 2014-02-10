@@ -4,7 +4,7 @@ During my career I wrote a lot of login screen's, but every time forgot at least
 
 Quick list of issues:
 
-- Netowrk
+- Network
 - Data validation
 - Edit Text attributes
 - Handle keyboard done button
