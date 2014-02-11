@@ -6,6 +6,8 @@ Quick list of issues:
 
 - Network
 - Data validation
+    - Lazy
+    - Runtime
 - Edit Text attributes
 - Handle keyboard done button
 - Loading dialog
@@ -38,7 +40,11 @@ public boolean isNetworkOn(@NotNull Context context) {
 ```
 
 #### Data validation
-Before making sign in request to server, do simple validation of *login* and *password*. For example you can check if those values are not empty or if *login* is user *email*, you can check if it match [Email pattern][1].
+Before making sign in request to server, do simple validation of *login* and *password*. For example you can check if those values are not empty or if *login* - is user *email*, you can check if it match [email pattern][1]. Here two possible solutions available. 
+
+**Lazy**
+
+Occurs only when user click on *sign in* / *login* button.
 
 ```java
 private void onLoginClicked() {
@@ -62,6 +68,79 @@ public String getPassword() {
 
 public String getEmail() {
     return mEditEmail.getText().toString().trim(); // mEditEmail - EditText
+}
+```
+
+**Runtime**
+
+Occurs whenever text inside login and password input fields changed. Login button stays disabled until input data is valid.
+
+```java
+private EditText mEditEmail;
+private EditText mEditPassword;
+private Button mBtnLogin;
+private boolean isEmailValid;
+private boolean isPasswordValid;
+
+private void initView() {
+    mEditEmail = (EditText) findViewById(R.id.editEmail);
+    mEditPassword = (EditText) findViewById(R.id.editPassword);
+
+    mEditEmail.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            validateEmail(s.toString());
+            updateLoginButtonState();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    });
+
+    mEditPassword.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            validatePassword(s.toString());
+            updateLoginButtonState();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    });
+
+    mBtnLogin = (Button) findViewById(R.id.btnLogin);
+    mBtnLogin.setEnabled(false); // default state should be disabled
+    mBtnLogin.setOnClickListener(this);
+}
+
+private void validatePassword(String text) {
+    isPasswordValid = !text.isEmpty();
+}
+
+private void validateEmail(String text) {
+    isEmailValid = Patterns.EMAIL_ADDRESS.matcher(text).matches();
+}
+
+private void updateLoginButtonState() {
+    if(isEmailValid && isPasswordValid) {
+        mBtnLogin.setEnabled(true);
+    } else {
+        mBtnLogin.setEnabled(false);
+    }
 }
 ```
 
