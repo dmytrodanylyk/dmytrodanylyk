@@ -8,18 +8,18 @@ During my career I wrote a lot of login screen's, but every time forgot at least
 
 Quick list of issues:
 
-1. Network
-2. Data validation
-    - Lazy
-    - Runtime
-3. Edit Text attributes
-4. Handle keyboard done button
-5. Loading indicator
-    - Dialog
+1. [Network] (http://goo.gl/OLvC7X)
+2. [Data validation](http://goo.gl/e5HfXn)
+    - [Lazy](http://goo.gl/g5wr9d)
+    - [Runtime](http://goo.gl/y3EXVR)
+3. [Edit Text attributes](http://goo.gl/LpNa4S)
+4. [Handle keyboard done button](http://goo.gl/3Wx3LN)
+5. [Loading indicator](http://goo.gl/v3vOYa)
+    - [Dialog](http://goo.gl/7EcaYf)
         - Handle state
         - Handle cancellation
-6. Encrypt credentials
-7. Login Screen is not always MAIN
+6. [Encrypt credentials](http://goo.gl/PU12sS)
+7. [Login Screen is not always MAIN](http://goo.gl/4Y33MK)
 
 ### Network
 Every time user press *Login* button first you need to check if Network is available. 
