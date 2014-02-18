@@ -1,23 +1,25 @@
+![enter image description here][16]
+
 ## Android Login Screen Checklist
 
 During my career I wrote a lot of login screen's, but every time forgot at least one more or less important thing. So I decided to write a small article which describe all issues you can face building a new Login Screen.
 
+----------
+
 Quick list of issues:
 
-- Network
-- Data validation
+1. Network
+2. Data validation
     - Lazy
     - Runtime
-- Edit Text attributes
-- Handle keyboard done button
-- Loading indicator
+3. Edit Text attributes
+4. Handle keyboard done button
+5. Loading indicator
     - Dialog
         - Handle state
         - Handle cancellation
-    - Progress bar
-- Background intent issue
-- Encrypt credentials
-- Login Screen is not always MAIN
+6. Encrypt credentials
+7. Login Screen is not always MAIN
 
 ### Network
 Every time user press *Login* button first you need to check if Network is available. 
@@ -186,15 +188,23 @@ mEditPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
 Display loading dialog, when login request is performed, is commonly used in lot of applications, however in my opinion this is a bad practice. I would rather replace login button with cancel, and disable user input.
 
+![enter image description here][13] ![enter image description here][14]
+
 #### Dialog
 
 Since [Activity.showDialog(..)][9] method is now deprecated, we are forced to use [fragment dialogs][10], which brings a lot of issues.
 
+![enter image description here][13] ![enter image description here][15]
+
 **Handle fragment state**
 
-![enter image description here][11]
+Whenever you try to open/close fragment dialog when activity is invisible you will got crash:
 
-This issue could be fixed in two ways.
+`java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState`
+
+This may happen when user press login button, you show dialog, and then user press home button, so request is completed and dialog is dismissed when application is in background.
+
+How to fix this issue?
 
 - Instead of using `dialogFragment.dismiss()` method use `dialogFragment.dismissAllowingStateLoss()`
 - Always close dialog in `onPause` method, and restore state in `onResume`
@@ -229,7 +239,7 @@ protected void onResume() {
 }
 ```
 
-Great article available [here][12].
+Great article available [here][11].
 
 **Handle cancellation**
 
@@ -284,6 +294,74 @@ public class LoginActivity extends Activity implements
 }
 ```
 
+### Encrypt credentials
+
+Almost all applications require entering login and password only during first time. Next time user launch application auto-sign in is performed. Does this mean application save your credentials to preferences? - Not necessary.
+
+If you server side made correctly, after success login request it return you *access token* or *cookie*, which you can use until expiration date. How you use it? Usually adding *access token* as a header to all further requests.
+
+In case your *poor* server requires adding credentials to every request, you need to save them to preferences. It is not safe to save them in open form, since anyone with root level access to the device will be able to see them. 
+
+There is a great article which describe [how to store credentials safely][12].
+
+### Login Screen is not always MAIN
+When you have a login screen in your application it doesn't mean it should be your *main launcher* screen.
+
+```xml
+<activity
+    android:name=".LoginActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+**Wrong**
+
+- Launch *Login* activity
+- Check if *access token* is valid
+- If *access token* valid launch *Dashboard* activity
+
+**Correct**
+
+- Launch *Dashboard* activity
+- Check if *access token* is valid
+- If *access token* is not valid launch *Login* activity
+
+If you think about it, user only sign in once and then you save *access token* or *user credentials* and do auto-sign in, until access token is expired. So you can check if *access token* is valid in your main screen, e.g. *Dashboard*, inside `onCreate` method before view is visible. 
+
+This will prevent your application from unnecessary launching *Login* screen, and speed up application launching.
+
+```java
+public class DashboardActivity extends Activity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // if user is not signed in, finish current activity
+        // and launch login screen
+        if (!isUserSignedIn()) {
+            finish();
+            startLoginActivity();
+            return;
+        }
+        setContentView(R.layout.ac_main);
+        // do initialization
+    }
+    
+    // retrieve access token from preferences
+    public boolean isUserSignedIn() {
+        return PreferencesManager.getInstance().getAccessToken() != null;
+    }
+    
+    private void startLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+}
+```
 
   [1]: http://developer.android.com/reference/android/util/Patterns.html#EMAIL_ADDRESS
   [2]: http://developer.android.com/reference/android/widget/TextView.html#attr_android:hint
@@ -295,5 +373,9 @@ public class LoginActivity extends Activity implements
   [8]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-4.png
   [9]: http://developer.android.com/reference/android/app/Activity.html#showDialog%28int%29
   [10]: http://developer.android.com/reference/android/app/DialogFragment.html
-  [11]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-5.png
-  [12]: http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html
+  [11]: http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html
+  [12]: http://android-developers.blogspot.com/2013/02/using-cryptography-to-store-credentials.html
+  [13]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-5.png
+  [14]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-6.png
+  [15]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-7.png
+  [16]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/checklist-login-screen.png
