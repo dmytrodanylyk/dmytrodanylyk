@@ -9,6 +9,7 @@
 * [Surface View - Intro](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md)
 * [Surface View - Playing video](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md)
 * [Surface View - Video Cropping](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md)
+* [Android Login Screen Checklist](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/Android%20Login%20Screen%20Checklist.md)
 
 ### List of all my reminders
 
