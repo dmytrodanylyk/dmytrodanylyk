@@ -183,7 +183,7 @@ requestQueue.cancelAll("weather-screen"); // cancel all requests with "weather-s
 ```
 
 ----------
-Found a mistake or have a question? Post it [here](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
+Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
 
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
   [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
