@@ -299,6 +299,9 @@ private void updateTextureViewSize(int viewWidth, int viewHeight) {
 
 When you launch application you should notice that now video is cropped and correctly displayed. Of course when width to height ratio is too big, video loose it quality as it is scaled to much, this is the same behaviour as in *ImageView.setScaleType(ImageVIew.ScaleType.CENTER_CROP)*;
 
+----------
+Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
+
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
   [2]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-1.png
   [3]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-2.png
