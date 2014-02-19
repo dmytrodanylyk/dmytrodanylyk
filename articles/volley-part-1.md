@@ -182,6 +182,9 @@ To cancel request you just need to remember **request tag** and call *cancelAll(
 requestQueue.cancelAll("weather-screen"); // cancel all requests with "weather-screen" tag 
 ```
 
+----------
+Found a mistake or have a question? Post it [here](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
+
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
   [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
   [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
