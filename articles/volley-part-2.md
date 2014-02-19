@@ -107,6 +107,8 @@ RequestManager.getInstance().doRequest().login(..);
 RequestManager.getInstance().doRequest().weather(..);
 ```
 
+----------
+Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
 
   [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
   [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
