@@ -261,7 +261,8 @@ The same as in **Playing video from assets** tutorial.
 
 The same as in Playing video from assets tutorial, but keep in mind you need internet connection. Also note we didn’t put any code which check network state. In real application you should first check if internet connection is available.
 
-
+----------
+Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
 
   [1]: http://developer.android.com/reference/android/view/TextureView.html
   [2]: http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels
