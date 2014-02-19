@@ -166,6 +166,9 @@ The same happens in `closeDatabase()` method. Every time we call this method, co
 
 Now you should be able to use your database and be sure - it's thread safe.
 
+----------
+Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
+
 
   [1]: http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html
   [2]: http://stackoverflow.com/
