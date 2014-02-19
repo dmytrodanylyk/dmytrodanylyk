@@ -27,6 +27,8 @@ Unlike *SurfaceView*, *TextureView* does not create a separate window but behave
 
 - TextureView is available only since API level 14
 
+----------
+Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
 
   [1]: http://developer.android.com/reference/android/view/SurfaceView.html
   [2]: http://developer.android.com/reference/android/opengl/GLSurfaceView.html
