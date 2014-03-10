@@ -363,9 +363,6 @@ public class DashboardActivity extends Activity {
 }
 ```
 
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
   [1]: http://developer.android.com/reference/android/util/Patterns.html#EMAIL_ADDRESS
   [2]: http://developer.android.com/reference/android/widget/TextView.html#attr_android:hint
   [3]: http://developer.android.com/reference/android/widget/TextView.html#attr_android:singleLine
