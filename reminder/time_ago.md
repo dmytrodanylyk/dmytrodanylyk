@@ -1,4 +1,4 @@
-Sample demonstrates how to display date in format "time ago"
+Sample demonstrates how to display date in format "time ago" using android [DateUtils](http://developer.android.com/reference/android/text/format/DateUtils.html)
 
 ```java
 DateUtils.getRelativeTimeSpanString(currentTime - 60 * 1000) // 1 minute ago
