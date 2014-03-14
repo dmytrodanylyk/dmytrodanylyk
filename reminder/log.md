@@ -1,7 +1,7 @@
 Wrapper of Android Log to make logging more consistent throughout the app.
 
 - To change global log tag `L.LOG_TAG = "My Application";`
-- `Info`, `Warning` and `Error` logs are only visible in debug version of application
+- `Debug` and `Verbose` logs are only visible in debug version of application
 - Caller method name is automatically placed in log message, to make debugging easier `"[" + callerClassName + "] " + msg`
 
 **Example**
