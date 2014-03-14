@@ -1,3 +1,6 @@
+Name | Expression | Default Value | Skip if defined
+--- | --- | --- | ---
+TYPE | className() | Object | true
 
 ```java
 public static final Parcelable.Creator<$TYPE$> CREATOR
