@@ -21,20 +21,17 @@
 
 Unlike *SurfaceView*, *TextureView* does not create a separate window but behaves as a regular view. This key difference allows a texture view to be moved, transformed, animated, etc.
 
-*TextureView* is simple and powerful way to work with *Video*, *Camera* and *OpenGL*. Because it uses hardware accelerated 2D rendering - it is so fast and efficient. 
+*TextureView* is simple and powerful way to work with *Video*, *Camera* and *OpenGL*. Because it uses hardware accelerated 2D rendering - it is so fast and efficient.
 
 **Problems**
 
 - TextureView is available only since API level 14
 
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
   [1]: http://developer.android.com/reference/android/view/SurfaceView.html
   [2]: http://developer.android.com/reference/android/opengl/GLSurfaceView.html
   [3]: http://developer.android.com/reference/android/widget/VideoView.html
   [4]: http://developer.android.com/reference/android/view/SurfaceView.html
-  [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-intro.png
-  [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
-  [7]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
-  [8]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md
+  [5]: /assets/images/articles/surface-view-intro.png
+  [6]: /articles/surface-view-intro.md
+  [7]: /articles/surface-view-play-video.md
+  [8]: /articles/surface-view-video-cropping.md

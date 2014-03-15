@@ -31,7 +31,7 @@ In your *values* folder create *dimen.xml* file and add following lines.
 <dimen name="texture_view_height">176dp</dimen>
 ```
 
-**Why 320dp and 176dp ?**  
+**Why 320dp and 176dp ?**
 > Video file *big_buck_bunny.mp4* has 320px width
 > and 176px height. We are using the same values but in *dp* to stretch
 > view and keep proportions. In other words video will look bigger.
@@ -261,15 +261,12 @@ The same as in **Playing video from assets** tutorial.
 
 The same as in Playing video from assets tutorial, but keep in mind you need internet connection. Also note we didn’t put any code which check network state. In real application you should first check if internet connection is available.
 
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
   [1]: http://developer.android.com/reference/android/view/TextureView.html
   [2]: http://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels
-  [3]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-uml-1.png
-  [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-screenshot-1.png
-  [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-play-video.png
-  [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
-  [7]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
-  [8]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
-  [9]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md
+  [3]: /assets/images/articles/surface-view-uml-1.png
+  [4]: /assets/images/articles/surface-view-screenshot-1.png
+  [5]: /assets/images/articles/surface-view-play-video.png
+  [6]: /assets/videos/articles/big_buck_bunny.mp4
+  [7]: /articles/surface-view-intro.md
+  [8]: /articles/surface-view-play-video.md
+  [9]: /articles/surface-view-video-cropping.md

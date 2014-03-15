@@ -143,20 +143,20 @@ public class DatabaseManager {
         if(mOpenCounter.decrementAndGet() == 0) {
             // Closing database
             mDatabase.close();
-            
+
         }
     }
 }
 ```
-    
+
 And use it as follows.
 
     SQLiteDatabase database = DatabaseManager.getInstance().openDatabase();
     database.insert(...);
     // database.close(); Don't close it directly!
     DatabaseManager.getInstance().closeDatabase(); // correct way
-    
-Every time you need database you should call `openDatabase()` method of `DatabaseManager` class. Inside this method, we have a counter, which indicate how many times database is opened. If it equals to one, it means we need to create new database, if not, database is already created. 
+
+Every time you need database you should call `openDatabase()` method of `DatabaseManager` class. Inside this method, we have a counter, which indicate how many times database is opened. If it equals to one, it means we need to create new database, if not, database is already created.
 
 The same happens in `closeDatabase()` method. Every time we call this method, counter is decreased, whenever it goes to zero, we are closing database.
 
@@ -172,6 +172,6 @@ Now you should be able to use your database and be sure - it's thread safe.
   [3]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#acquireReference%28%29
   [4]: http://developer.android.com/reference/android/database/sqlite/SQLiteClosable.html#close%28%29
   [5]: http://developer.android.com/reference/java/util/concurrent/atomic/AtomicInteger.html
-  [6]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/concurrent-db-access.png
+  [6]: /assets/images/articles/concurrent-db-access.png
   [7]: https://github.com/dmytrodanylyk/android-concurrent-database
-  
+

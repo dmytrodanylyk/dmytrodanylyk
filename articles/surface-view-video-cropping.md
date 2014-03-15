@@ -299,19 +299,16 @@ private void updateTextureViewSize(int viewWidth, int viewHeight) {
 
 When you launch application you should notice that now video is cropped and correctly displayed. Of course when width to height ratio is too big, video loose it quality as it is scaled to much, this is the same behaviour as in *ImageView.setScaleType(ImageVIew.ScaleType.CENTER_CROP)*;
 
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
-  [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
-  [2]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-1.png
-  [3]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-2.png
-  [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-3.png
-  [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-4.png
-  [6]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/videos/articles/big_buck_bunny.mp4
-  [7]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md#playing-video-from-assets-folder
+  [1]: /assets/videos/articles/big_buck_bunny.mp4
+  [2]: /assets/images/articles/video-crop-1.png
+  [3]: /assets/images/articles/video-crop-2.png
+  [4]: /assets/images/articles/video-crop-3.png
+  [5]: /assets/images/articles/video-crop-4.png
+  [6]: /assets/videos/articles/big_buck_bunny.mp4
+  [7]: /articles/surface-view-play-video.md#playing-video-from-assets-folder
   [8]: http://developer.android.com/reference/android/media/MediaMetadataRetriever.html
-  [9]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/video-crop-5.png
-  [10]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/surface-view-video-cropping.png
-  [11]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-intro.md
-  [12]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md
-  [13]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-video-cropping.md
+  [9]: /assets/images/articles/video-crop-5.png
+  [10]: /assets/images/articles/surface-view-video-cropping.png
+  [11]: /articles/surface-view-intro.md
+  [12]: /articles/surface-view-play-video.md
+  [13]: /articles/surface-view-video-cropping.md
