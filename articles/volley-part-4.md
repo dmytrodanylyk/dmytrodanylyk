@@ -1,9 +1,9 @@
 ### Volley - Android HTTP client
 
-- [Part 1 - Quickstart][1]
-- [Part 2 - Application Model][2]
-- [Part 3 - Image Loader][3]
-- [Part 4 - Common Questions][4]
+- [Part 1 - Quickstart](/assets/articles/volley-part-1.md)
+- [Part 2 - Application Model](/assets/articles/volley-part-2.md)
+- [Part 3 - Image Loader](/assets/articles/volley-part-3.md)
+- [Part 4 - Common Questions](/assets/articles/volley-part-4.md)
 
 ### Part 4 - Common Questions
 
@@ -12,11 +12,11 @@
 Sometimes you don't need to run all your requests simultaneously or want to restrict maximum number of requests, for this you need to create your own `RequestQueue`.
 
 Here is sample which demonstrates how to make all your requests execute in the same order, in which they were added to the queue. Since it uses single thread execution, next request will not be executed, until previous is finished.
-```java 
+```java
     // copied from Volley.newRequestQueue(..); source code
     public static RequestQueue newRequestQueue(Context context, HttpStack stack) {
         File cacheDir = new File(context.getCacheDir(), "def_cahce_dir");
-        
+
         String userAgent = "volley/0";
         try {
             String packageName = context.getPackageName();
@@ -24,7 +24,7 @@ Here is sample which demonstrates how to make all your requests execute in the s
             userAgent = packageName + "/" + info.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
         }
-        
+
         if (stack == null) {
             if (Build.VERSION.SDK_INT >= 9) {
                 stack = new HurlStack();
@@ -34,12 +34,12 @@ Here is sample which demonstrates how to make all your requests execute in the s
                 stack = new HttpClientStack(AndroidHttpClient.newInstance(userAgent));
             }
         }
-        
+
         // important part
-        int threadPoolSize = 1; // number of network dispatcher threads to create 
+        int threadPoolSize = 1; // number of network dispatcher threads to create
         RequestQueue queue = new RequestQueue(new DiskBasedCache(cacheDir), network, threadPoolSize);
         queue.start();
-        
+
         return queue;
     }
 ```
@@ -47,7 +47,7 @@ Here is sample which demonstrates how to make all your requests execute in the s
 #### How to make event listeners trigger not in UI thread?
 
 When you are executing new request, you pass two listeners: success and error. By default Volley trigger them in UI thread. In one hand, you can immediately show error dialog or update view without extra code of switching to UI thread. In other hand mostly you have to parse XML or JSON response which may take time, and doing this in UI thread is not a best practice.
-```java 
+```java
     Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
         @Override
         public void onResponse(JSONObject response) {
@@ -55,19 +55,19 @@ When you are executing new request, you pass two listeners: success and error. B
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    // do parsing     
+                    // do parsing
                 }
             });
         }
     };
-```   
-    
+```
+
 If you want to fix this, and make all your request listeners trigger in non UI thread - we need to create `RequestQueue` and pass `Executor` to constructor of `ResponseDelivery` object, then pass this `ResponseDelivery` object as a 4th parameter for `RequestQueue` constructor
-```java 
+```java
     // copied from Volley.newRequestQueue(..); source code
     public static RequestQueue newRequestQueue(Context context, HttpStack stack) {
         File cacheDir = new File(context.getCacheDir(), "def_cahce_dir");
-        
+
         String userAgent = "volley/0";
         try {
             String packageName = context.getPackageName();
@@ -75,7 +75,7 @@ If you want to fix this, and make all your request listeners trigger in non UI t
             userAgent = packageName + "/" + info.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
         }
-        
+
         if (stack == null) {
             if (Build.VERSION.SDK_INT >= 9) {
                 stack = new HurlStack();
@@ -85,7 +85,7 @@ If you want to fix this, and make all your request listeners trigger in non UI t
                 stack = new HttpClientStack(AndroidHttpClient.newInstance(userAgent));
             }
         }
-        
+
         // important part
         int threadPoolSize = 10; // number of network dispatcher threads to create
         // pass Executor to constructor of ResponseDelivery object
@@ -93,13 +93,13 @@ If you want to fix this, and make all your request listeners trigger in non UI t
         // pass ResponseDelivery object as a 4th parameter for RequestQueue constructor
         RequestQueue queue = new RequestQueue(new DiskBasedCache(cacheDir), network, threadPoolSize, delivery);
         queue.start();
-        
+
         return queue;
     }
 ```
 
 Don't forget to switch to UI thread when parsing is done.
-```java     
+```java
     Response.Listener<JSONObject> listener = new Response.Listener<JSONObject>() {
         @Override
         public void onResponse(JSONObject response) {
@@ -113,11 +113,3 @@ Don't forget to switch to UI thread when parsing is done.
         }
     };
 ```
-
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
-  [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
-  [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
-  [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
-  [4]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-4.md

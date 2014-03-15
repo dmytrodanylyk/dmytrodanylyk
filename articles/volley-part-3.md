@@ -1,18 +1,18 @@
-![Image Loader][4]
+![Image Loader](/assets/images/articles/volley-part-3.png)
 
 ### Volley - Android HTTP client
-- [Part 1 - Quickstart][1]
-- [Part 2 - Application Model][2]
-- [Part 3 - Image Loader][3]
-- [Part 4 - Common Questions][5]
+- [Part 1 - Quickstart](/assets/articles/volley-part-1.md)
+- [Part 2 - Application Model](/assets/articles/volley-part-2.md)
+- [Part 3 - Image Loader](/assets/articles/volley-part-3.md)
+- [Part 4 - Common Questions](/assets/articles/volley-part-4.md)]
 
 ### Part 3 - Image Loader
 
 > You need to load image?
 
-We have view for this! 
+We have view for this!
 
-```xml 
+```xml
 <com.android.volley.toolbox.NetworkImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@ We have view for this!
 ```
 
 Just set up url and image loader.
-```java 
+```java
 NetworkImageView imageView = (NetworkImageView) findViewById(R.id.imageView);
 imageView.setImageUrl(url, imageLoader);
 imageView.setDefaultImageResId(..);
@@ -35,16 +35,16 @@ To create image loader we need two things.
 - RequestQueue
 - ImageCache
 
-```java 
+```java
 ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(context), imageCache);
 ```
 
 Memory Cache
-```java 
+```java
 public class BitmapLruCache
 extends LruCache<String, Bitmap>
         implements ImageLoader.ImageCache {
-        
+
     public BitmapLruCache() {
         this(getDefaultLruCacheSize());
     }
@@ -52,17 +52,17 @@ extends LruCache<String, Bitmap>
     public BitmapLruCache(int sizeInKiloBytes) {
         super(sizeInKiloBytes);
     }
-    
+
     @Override
     protected int sizeOf(String key, Bitmap value) {
         return value.getRowBytes() * value.getHeight() / 1024;
     }
-    
+
     @Override
     public Bitmap getBitmap(String url) {
         return get(url);
     }
-    
+
     @Override
     public void putBitmap(String url, Bitmap bitmap) {
         put(url, bitmap);
@@ -72,18 +72,18 @@ extends LruCache<String, Bitmap>
         final int maxMemory =
                 (int) (Runtime.getRuntime().maxMemory() / 1024);
         final int cacheSize = maxMemory / 8;
-    
+
         return cacheSize;
     }
 }
 ```
 
 Put it all together
-```java 
+```java
 ImageLoader.ImageCache imageCache = new BitmapLruCache();
 ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(context), imageCache);
 ```
-```xml 
+```xml
 <com.android.volley.toolbox.NetworkImageView
     android:id="@+id/imageView"
     android:layout_width="wrap_content"
@@ -102,7 +102,7 @@ Volley.newRequestQueue(context)
 // inside newRequestQueue method
 File cacheDir = new File(context.getCacheDir(), DEFAULT_CACHE_DIR);
 
-// getCacheDir() method description 
+// getCacheDir() method description
 You should always have a reasonable maximum, such as 1 MB, for the amount of space you consume with cache files, and prune those files when exceeding that space.
 ```
 
@@ -123,26 +123,26 @@ private static RequestQueue newRequestQueue(Context context) {
                 + "switching to application specific cache directory");
         rootCache = context.getCacheDir();
     }
-    
+
     File cacheDir = new File(rootCache, DEFAULT_CACHE_DIR);
     cacheDir.mkdirs();
-    
+
     HttpStack stack = new HurlStack();
     Network network = new BasicNetwork(stack);
     DiskBasedCache diskBasedCache = new DiskBasedCache(cacheDir, DEFAULT_DISK_USAGE_BYTES);
     RequestQueue queue = new RequestQueue(diskBasedCache, network);
     queue.start();
-    
+
     return queue;
 }
 ```
 
 Replace `Volley.newRequestQueue(context)` with our own method and now you have fully working Image loader with configurable memory and disk cache.
-```java 
+```java
 ImageLoader.ImageCache imageCache = new BitmapLruCache();
 ImageLoader imageLoader = new ImageLoader(newRequestQueue(context), imageCache);
 ```
-```xml 
+```xml
 <com.android.volley.toolbox.NetworkImageView
     android:id="@+id/imageView"
     android:layout_width="wrap_content"
@@ -165,7 +165,7 @@ new ImageRequest(
         maxHeight,
         decodeConfig,
         errorListener);
-        
+
 Response.Listener<Bitmap> listener = new Response.Listener<Bitmap>() {
     @Override
     public void onResponse(Bitmap bitmap) {
@@ -175,13 +175,3 @@ Response.Listener<Bitmap> listener = new Response.Listener<Bitmap>() {
 ```
 
 **Note:** Volley decides whether to cache response or not based only on headers *"Cache-Control"* and *"Expires"*
-
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
-
-  [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
-  [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
-  [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
-  [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/volley-part-3.png
-  [5]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-4.md

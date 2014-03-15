@@ -1,14 +1,14 @@
-![Application Model][4]
+![Application Model](/assets/images/articles/volley-part-2.png)
 
 ### Volley - Android HTTP client
-- [Part 1 - Quickstart][1]
-- [Part 2 - Application Model][2]
-- [Part 3 - Image Loader][3]
-- [Part 4 - Common Questions][5]
+- [Part 1 - Quickstart](/assets/articles/volley-part-1.md)
+- [Part 2 - Application Model](/assets/articles/volley-part-2.md)
+- [Part 3 - Image Loader](/assets/articles/volley-part-3.md)
+- [Part 4 - Common Questions](/assets/articles/volley-part-4.md)
 
 ### Part 2 - Application Model
 
-> Do I need to instantiate request queue in each Service or Activity? 
+> Do I need to instantiate request queue in each Service or Activity?
 
 No
 
@@ -18,8 +18,8 @@ Yes
 
 > Why ?
 
- - Request Queue creation is quite expensive 
- - You will be able to access and cancel all your requests 
+ - Request Queue creation is quite expensive
+ - You will be able to access and cancel all your requests
  - You will be able to access and clear your cache
 
 
@@ -36,11 +36,11 @@ Let's create two class.
 
 Put those two classes in the same package.
 
-```java 
+```java
 public class RequestProxy {
 
     private RequestQueue mRequestQueue;
-    
+
     // package access constructor
     RequestProxy(Context context) {
     mRequestQueue = Volley.newRequestQueue(context.getApplicationContext());
@@ -48,25 +48,25 @@ public class RequestProxy {
     public void login() {
         // login request
     }
-    
+
     public void weather() {
         // weather request
     }
  }
 ```
-```java 
+```java
 public class RequestManager {
 
     private static RequestManager instance;
     private RequestProxy mRequestProxy;
-    
+
     private RequestManager(Context context) {
         mRequestProxy = new RequestProxy(context);
     }
     public RequestProxy doRequest() {
         return mRequestProxy;
     }
-    
+
     // This method should be called first to do singleton initialization
     public static synchronized RequestManager getInstance(Context context) {
         if (instance == null) {
@@ -74,7 +74,7 @@ public class RequestManager {
         }
         return instance;
     }
-    
+
     public static synchronized RequestManager getInstance() {
         if (instance == null) {
             throw new IllegalStateException(RequestManager.class.getSimpleName() +
@@ -88,7 +88,7 @@ public class RequestManager {
 **Usage**
 
 Initialize `RequestManager` in application class
-```java 
+```java
 public class MyApplication extends Application {
 
     @Override
@@ -102,16 +102,7 @@ public class MyApplication extends Application {
 ```
 
 Now you can start you request as following.
-```java 
+```java
 RequestManager.getInstance().doRequest().login(..);
 RequestManager.getInstance().doRequest().weather(..);
 ```
-
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
-
-  [1]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md
-  [2]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md
-  [3]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-3.md
-  [4]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/volley-part-2.png
-  [5]: https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-4.md

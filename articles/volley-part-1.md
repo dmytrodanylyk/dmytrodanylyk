@@ -1,10 +1,10 @@
-![Quickstart](/images/articles/volley-part-1.png)
+![Quickstart](/assets/images/articles/volley-part-1.png)
 
 ### Volley - Android HTTP client
-- [Part 1 - Quickstart](/articles/volley-part-1.md)
-- [Part 2 - Application Model](/articles/volley-part-2.md)
-- [Part 3 - Image Loader](/articles/volley-part-3.md)
-- [Part 4 - Common Questions](/articles/volley-part-4.md)
+- [Part 1 - Quickstart](/assets/articles/volley-part-1.md)
+- [Part 2 - Application Model](/assets/articles/volley-part-2.md)
+- [Part 3 - Image Loader](/assets/articles/volley-part-3.md)
+- [Part 4 - Common Questions](/assets/articles/volley-part-4.md)
 
 ### Part 1 - Quickstart
 
@@ -28,7 +28,7 @@ Step 1 - Create request queue
 RequestQueue requestQueue = Volley.newRequestQueue(context.getApplicationContext());
 ```
 Step 2 - Create request
-```java    
+```java
 StringRequest request = new StringRequest(
             Request.Method.GET,
             url,
@@ -36,14 +36,14 @@ StringRequest request = new StringRequest(
             errorListener);
 ```
 Step 3 - Create listeners
-```java  
+
+```java
 Response.Listener<String> listener = new Response.Listener<String>() {
     @Override
     public void onResponse(String response) {
         L.d("Success Response: " + response.toString());
     }
 };
-
 Response.ErrorListener errorListener = new Response.ErrorListener() {
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -55,7 +55,7 @@ Response.ErrorListener errorListener = new Response.ErrorListener() {
 ```
 
 Step 4 - Add request to queue
-```java  
+```java
 requestQueue.add(request);
 ```
 
@@ -68,31 +68,31 @@ requestQueue.add(request);
 
 #### Request types
 
-![Volley request diagram](/images/articles/volley-diagram.png)
+![Volley request diagram](/assets/images/articles/volley-diagram.png)
 
 Every request listener returns appropriate type.
 
-- String 
+- String
 - Json Object
-- Json Array 
+- Json Array
 - Bitmap
 
 #### You can create your own type
 
 Example of request which add some cookie.
 
-```java  
+```java
 public class CookieRequest extends StringRequest {
 
     private String mCookieValue;
-    
+
         public CookieRequest(String url, String cookieValue,
                 Response.Listener<String> listener,
                 Response.ErrorListener errorListener) {
             super(Method.GET, url, listener, errorListener);
             mCookieValue = cookieValue;
         }
-    
+
         @Override
         public Map<String, String> getHeaders() throws AuthFailureError {
             Map<String, String> map = new HashMap<String, String>();
@@ -104,9 +104,9 @@ public class CookieRequest extends StringRequest {
 
 #### How to pass post request parameters?
 
-You need to override `getParams()` method. 
+You need to override `getParams()` method.
 
-```java 
+```java
 StringRequest request = new StringRequest(
         Request.Method.POST,
         url,
@@ -125,13 +125,13 @@ StringRequest request = new StringRequest(
 ```
 
 #### How to set request retry policy?
-```java 
+```java
 StringRequest request = new StringRequest(
         Request.Method.GET,
         url,
         listener,
         errorListener);
-        
+
 request.setRetryPolicy(
     new DefaultRetryPolicy(
             DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, // 2500
@@ -140,7 +140,7 @@ request.setRetryPolicy(
 ```
 
 #### HTTP basic authorization
-```java 
+```java
 StringRequest request = new StringRequest(
         Request.Method.GET,
         url,
@@ -153,7 +153,7 @@ StringRequest request = new StringRequest(
     }
 };
 ```
-```java 
+```java
 Map<String, String> createBasicAuthHeader(String username, String password) {
     Map<String, String> headerMap = new HashMap<String, String>();
 
@@ -167,7 +167,7 @@ Map<String, String> createBasicAuthHeader(String username, String password) {
 ```
 
 #### How to cancel request?
-```java 
+```java
 StringRequest request1 = new StringRequest(...);
 request1.setTag("weather-screen"); // request tag
 
@@ -178,9 +178,6 @@ requestQueue.add(request1);
 requestQueue.add(request2);
 ```
 To cancel request you just need to remember **request tag** and call *cancelAll(...)* method.
-```java 
-requestQueue.cancelAll("weather-screen"); // cancel all requests with "weather-screen" tag 
+```java
+requestQueue.cancelAll("weather-screen"); // cancel all requests with "weather-screen" tag
 ```
-
-----------
-Found a mistake or have a question? Create new [issue](https://github.com/dmytrodanylyk/dmytrodanylyk/issues).
