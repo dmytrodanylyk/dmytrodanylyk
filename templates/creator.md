@@ -1,3 +1,5 @@
+![Creator](/images/templates/creator.gif)
+
 Name | Expression | Default Value | Skip if defined
 --- | --- | --- | ---
 TYPE | className() | Object | true
