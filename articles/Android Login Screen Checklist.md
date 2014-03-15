@@ -22,12 +22,12 @@ Quick list of issues:
 7. [Login Screen is not always MAIN](http://goo.gl/4Y33MK)
 
 ### Network
-Every time user press *Login* button first you need to check if Network is available. 
+Every time user press *Login* button first you need to check if Network is available.
 
 ```java
 private void onLoginClicked() {
     if(!isNetworkOn(getBaseContext())) {
-        Toast.makeText(getBaseContext(), 
+        Toast.makeText(getBaseContext(),
                 "No network connection", Toast.LENGTH_SHORT).show();
     } else {
         // do login
@@ -44,7 +44,7 @@ public boolean isNetworkOn(@NotNull Context context) {
 ```
 
 ### Data validation
-Before making sign in request to server, do simple validation of *login* and *password*. For example you can check if those values are not empty or if *login* - is user *email*, you can check if it match [email pattern][1]. Here two possible solutions available. 
+Before making sign in request to server, do simple validation of *login* and *password*. For example you can check if those values are not empty or if *login* - is user *email*, you can check if it match [email pattern][1]. Here two possible solutions available.
 
 #### Lazy
 
@@ -158,13 +158,13 @@ Sample without `inputType` attributes.
 
 ![enter image description here][5] ![enter image description here][6]
 
-Sample with `inputType="textEmailAddress"` and `inputType="textPassword"` attributes. 
+Sample with `inputType="textEmailAddress"` and `inputType="textPassword"` attributes.
 
 ![enter image description here][7] ![enter image description here][8]
 
 **Notice**, here we have two additional buttons `@` and `.com` to make email typing for user a lot easier, after typing `@` symbol autocomplete shows three commonly used email domains: `gmail`, `hotmal`, `yahoo`. Also password field is now hidden and didn't suggest any autocompletion.
 
-### Handle keyboard done button 
+### Handle keyboard done button
 
 Default behavior when user press keyboard's `Done` button - is to close keyboard. Good practice is to handle this click and duplicate your login button click logic.
 
@@ -286,11 +286,11 @@ In your activity implement `OnDialogClosedListener` and cancel request.
 ```java
 public class LoginActivity extends Activity implements
         LoadingDialogFragment.OnDialogClosedListener {
-        
+
     @Override
     public void onDialogClosed() {
         // cancel request
-    }    
+    }
 }
 ```
 
@@ -300,7 +300,7 @@ Almost all applications require entering login and password only during first ti
 
 If you server side made correctly, after success login request it return you *access token* or *cookie*, which you can use until expiration date. How you use it? Usually adding *access token* as a header to all further requests.
 
-In case your *poor* server requires adding credentials to every request, you need to save them to preferences. It is not safe to save them in open form, since anyone with root level access to the device will be able to see them. 
+In case your *poor* server requires adding credentials to every request, you need to save them to preferences. It is not safe to save them in open form, since anyone with root level access to the device will be able to see them.
 
 There is a great article which describe [how to store credentials safely][12].
 
@@ -329,7 +329,7 @@ When you have a login screen in your application it doesn't mean it should be yo
 - Check if *access token* is valid
 - If *access token* is not valid launch *Login* activity
 
-If you think about it, user only sign in once and then you save *access token* or *user credentials* and do auto-sign in, until access token is expired. So you can check if *access token* is valid in your main screen, e.g. *Dashboard*, inside `onCreate` method before view is visible. 
+If you think about it, user only sign in once and then you save *access token* or *user credentials* and do auto-sign in, until access token is expired. So you can check if *access token* is valid in your main screen, e.g. *Dashboard*, inside `onCreate` method before view is visible.
 
 This will prevent your application from unnecessary launching *Login* screen, and speed up application launching.
 
@@ -350,12 +350,12 @@ public class DashboardActivity extends Activity {
         setContentView(R.layout.ac_main);
         // do initialization
     }
-    
+
     // retrieve access token from preferences
     public boolean isUserSignedIn() {
         return PreferencesManager.getInstance().getAccessToken() != null;
     }
-    
+
     private void startLoginActivity() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
@@ -367,15 +367,15 @@ public class DashboardActivity extends Activity {
   [2]: http://developer.android.com/reference/android/widget/TextView.html#attr_android:hint
   [3]: http://developer.android.com/reference/android/widget/TextView.html#attr_android:singleLine
   [4]: http://developer.android.com/reference/android/R.attr.html#inputType
-  [5]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-1.png
-  [6]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-2.png
-  [7]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-3.png
-  [8]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-4.png
+  [5]: /assets/images/articles/login-checklist-1.png
+  [6]: /assets/images/articles/login-checklist-2.png
+  [7]: /assets/images/articles/login-checklist-3.png
+  [8]: /assets/images/articles/login-checklist-4.png
   [9]: http://developer.android.com/reference/android/app/Activity.html#showDialog%28int%29
   [10]: http://developer.android.com/reference/android/app/DialogFragment.html
   [11]: http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html
   [12]: http://android-developers.blogspot.com/2013/02/using-cryptography-to-store-credentials.html
-  [13]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-5.png
-  [14]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-6.png
-  [15]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/login-checklist-7.png
-  [16]: https://raw.github.com/dmytrodanylyk/dmytrodanylyk/gh-pages/images/articles/checklist-login-screen.png
+  [13]: /assets/images/articles/login-checklist-5.png
+  [14]: /assets/images/articles/login-checklist-6.png
+  [15]: /assets/images/articles/login-checklist-7.png
+  [16]: /assets/images/articles/checklist-login-screen.png
