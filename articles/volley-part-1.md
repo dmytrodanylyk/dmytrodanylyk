@@ -1,10 +1,10 @@
 ![Quickstart](/images/articles/volley-part-1.png)
 
 ### Volley - Android HTTP client
-- [Part 1 - Quickstart][/articles/volley-part-1.md]
-- [Part 2 - Application Model][/articles/volley-part-2.md]
-- [Part 3 - Image Loader][/articles/volley-part-3.md]
-- [Part 4 - Common Questions][/articles/volley-part-4.md]
+- [Part 1 - Quickstart](/articles/volley-part-1.md)
+- [Part 2 - Application Model](/articles/volley-part-2.md)
+- [Part 3 - Image Loader](/articles/volley-part-3.md)
+- [Part 4 - Common Questions](/articles/volley-part-4.md)
 
 ### Part 1 - Quickstart
 
@@ -68,7 +68,7 @@ requestQueue.add(request);
 
 #### Request types
 
-![Volley request diagram][/images/articles/volley-diagram.png]
+![Volley request diagram](/images/articles/volley-diagram.png)
 
 Every request listener returns appropriate type.
 
