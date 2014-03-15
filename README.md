@@ -1,6 +1,6 @@
 ### List of all my articles:
 
-* [Android Development Unwritten Requirements](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/Unwritten%20Requirements.md)
+* [Android Development Unwritten Requirements](/articles/Unwritten%20Requirements.md)
 * [Concurrent Database Access](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/Concurrent%20Database%20Access.md)
 * [Volley - Android HTTP client - Part 1 - Quickstart](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-1.md)
 * [Volley - Android HTTP client - Part 2 - Application Model](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/volley-part-2.md)
