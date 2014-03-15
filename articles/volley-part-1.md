@@ -1,4 +1,4 @@
-![Quickstart][/images/articles/volley-part-1.png]
+![Quickstart](/images/articles/volley-part-1.png)
 
 ### Volley - Android HTTP client
 - [Part 1 - Quickstart][/articles/volley-part-1.md]
