@@ -21,7 +21,10 @@
 ==
 [Dmytro Danylyk - Android Platform Software Developer] (http://dmytrodanylyk.github.io/dmytrodanylyk)
 
-[![Follow Me](/assets/images/social/twitter.png)](https://twitter.com/dmytrodanylyk)
+[![Facebook](/assets/images/social/facebook.png)](https://www.facebook.com/dmytrodanylyk)
+[![Twitter](/assets/images/social/twitter.png)](https://twitter.com/dmytrodanylyk)
+[![Google Plus](/assets/images/social/google_plus.png)](https://plus.google.com/+DmytroDanylyk)
+[![Linked In](/assets/images/social/linkedin.png)](http://www.linkedin.com/pub/dmytro-danylyk/73/53b/9a4)
 
 
   [1]: /reminder/log.md
