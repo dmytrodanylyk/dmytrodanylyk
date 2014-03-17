@@ -19,7 +19,9 @@
 * [BitmapUtils][4] - android helper class which extends `BitmapFactory` and add additional methods to work with Bitmaps.
 
 ==
-[![Follow Me](/assets/images/social/twitter.png)](https://twitter.com/dmytrodanylyk)[Dmytro Danylyk - Android Platform Software Developer] (http://dmytrodanylyk.github.io/dmytrodanylyk)
+[![Follow Me](/assets/images/social/twitter.png)](https://twitter.com/dmytrodanylyk)
+
+[Dmytro Danylyk - Android Platform Software Developer] (http://dmytrodanylyk.github.io/dmytrodanylyk)
 
 
   [1]: /reminder/log.md
