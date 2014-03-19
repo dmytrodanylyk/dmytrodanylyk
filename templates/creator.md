@@ -1,4 +1,4 @@
-![Creator](/images/templates/creator.gif)
+![Creator](/assets/images/templates/creator.gif)
 
 Name | Expression | Default Value | Skip if defined
 --- | --- | --- | ---
