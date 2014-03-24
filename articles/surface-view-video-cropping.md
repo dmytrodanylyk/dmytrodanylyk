@@ -12,6 +12,8 @@ In this tutorial we are going to create application which will do following:
 - display video from assets folder using *TextureView*
 - when user click on screen, *TextureView* must resize itself and video should be cropped to match new view size
 
+You can also use my [`TextureVideoView`](https://github.com/dmytrodanylyk/android-video-crop) - custom view based on android `TextureView` which gives you ability to easy play and crop video. This very similar to `ImageView#setScaleType`
+
 #### Final Results
 
 ![video crop 1][2] &ensp; ![video crop 2][3]
