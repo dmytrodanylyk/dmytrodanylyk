@@ -1,8 +1,36 @@
 Android helper class to finish any activity by class name.
 
+**Usage**
+
+Finish all activities except `ActivityC`.
+
+```java
+Class[] activityArr = null;
+Class[] excludeArr = {ActivityC.class};
+ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
+```
+
+Finish `ActivityA` and `ActivityB`.
+
+```java
+Class[] activityArr = {ActivityA.class, ActivityB.class};
+ActivityManager.finishActivities(getBaseContext(), activityArr);
+```
+
+Finish activity `ActivityB`, exclude from finish `ActivityA` and `ActivityC`
+
+```java
+Class[] activityArr = {ActivityB.class};
+Class[] excludeArr = {ActivityA.class, ActivityC.class};
+ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
+```
+
 **Why we need this?**
+This is typically used when an application can be launched on to another task (such as from an `ACTION_VIEW` of a content type it understands).
 
 **How it works?**
+
+Inside `ActivityManager` class we have `registerExitReceiver()` method which register broadcast receiver for current activity and listen when `ActivityManager.ACTION_FINISH` occurs. 
 
 **Setup**
 
@@ -35,31 +63,6 @@ public class ActivityC extends BaseActivity { }
 
 ```
 
-**Usage**
-
-Finish all activities except `ActivityC`.
-
-```java
-Class[] activityArr = null;
-Class[] excludeArr = {ActivityC.class};
-ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
-```
-
-Finish `ActivityA` and `ActivityB`.
-
-```java
-Class[] activityArr = {ActivityA.class, ActivityB.class};
-ActivityManager.finishActivities(getBaseContext(), activityArr);
-```
-
-Finish activity `ActivityB`, exclude from finish `ActivityA` and `ActivityC`
-
-```java
-Class[] activityArr = {ActivityB.class};
-Class[] excludeArr = {ActivityA.class, ActivityC.class};
-ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
-```
-
 **Source**
 
 ```java
@@ -81,7 +84,7 @@ public class ActivityManager {
         @Override
         public void onReceive(Context context, Intent intent) {
             Bundle extras = intent.getExtras();
-            if (extras == null) {
+            if (!TextUtils.equals(intent.getAction(), ACTION_FINISH) || extras == null) {
                 return;
             }
 
