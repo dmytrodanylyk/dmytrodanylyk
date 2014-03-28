@@ -1,3 +1,66 @@
+Android helper class to finish any activity by class name.
+
+**Why we need this?**
+
+**How it works?**
+
+**Setup**
+
+Copy `ActivityManager` class to your sources. Create `BaseActivity` class. Make other activities extend your `BaseActivity` class.
+
+```java
+public class BaseActivity extends Activity {
+
+    private ActivityManager mActivityManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mActivityManager = new ActivityManager(this);
+        mActivityManager.registerExitReceiver();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mActivityManager.unregisterReceiver();
+    }
+}
+
+public class ActivityA extends BaseActivity { }
+
+public class ActivityB extends BaseActivity { }
+
+public class ActivityC extends BaseActivity { }
+
+```
+
+**Usage**
+
+Finish all activities except `ActivityC`.
+
+```java
+Class[] activityArr = null;
+Class[] excludeArr = {ActivityC.class};
+ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
+```
+
+Finish `ActivityA` and `ActivityB`.
+
+```java
+Class[] activityArr = {ActivityA.class, ActivityB.class};
+ActivityManager.finishActivities(getBaseContext(), activityArr);
+```
+
+Finish activity `ActivityB`, exclude from finish `ActivityA` and `ActivityC`
+
+```java
+Class[] activityArr = {ActivityB.class};
+Class[] excludeArr = {ActivityA.class, ActivityC.class};
+ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
+```
+
+**Source**
 
 ```java
 public class ActivityManager {
