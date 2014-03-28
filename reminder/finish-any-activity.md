@@ -26,7 +26,10 @@ ActivityManager.finishActivities(getBaseContext(), activityArr, excludeArr);
 ```
 
 **Why we need this?**
+
 This is typically used when an application can be launched on to another task (such as from an `ACTION_VIEW` of a content type it understands).
+
+![](/assets/images/reminders/finish-activity-diagram.png)
 
 **How it works?**
 
