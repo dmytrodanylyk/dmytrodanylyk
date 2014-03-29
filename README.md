@@ -17,6 +17,8 @@
 * [Android Patterns][2] - to validate Email, Phone, Web Url.
 * [NetworkUtils][3] - android helper class to check network connection.
 * [BitmapUtils][4] - android helper class which extends `BitmapFactory` and add additional methods to work with Bitmaps.
+* [Time Ago][5] - sample demonstrates how to display date in format "time ago" using android `DateUtils`.
+* [ActivityManager][6] - android helper class to finish any activity by class name.
 
 ==
 [Dmytro Danylyk - Android Platform Software Developer] (http://dmytrodanylyk.github.io/dmytrodanylyk)
@@ -31,3 +33,5 @@
   [2]: /reminder/android-patterns.md
   [3]: /reminder/network-utils.md
   [4]: /reminder/bitmap_utils.md
+  [5]: /reminder/time-ago.md
+  [6]: /reminder/finish-any-activity.md
