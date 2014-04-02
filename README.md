@@ -1,3 +1,6 @@
+<img src="https://octodex.github.com/images/steroidtocat.png" width="400"/>
+
+
 ### List of all my articles:
 
 * [Android Development Unwritten Requirements](/articles/Unwritten%20Requirements.md)
