@@ -1,6 +1,6 @@
 ![Quickstart][5]
 
-### Surface View
+### Texture View
 - [Part 1 - Intro][6]
 - [Part 2 - Playing video][7]
 - [Part 3 - Video Cropping][8]
