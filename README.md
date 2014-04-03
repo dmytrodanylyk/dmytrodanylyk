@@ -9,9 +9,9 @@
 * [Volley - Android HTTP client - Part 2 - Application Model](/articles/volley-part-2.md)
 * [Volley - Android HTTP client - Part 3 - Image Loader](/articles/volley-part-3.md)
 * [Volley - Android HTTP client - Part 4 - Common Questions](/articles/volley-part-4.md)
-* [Surface View - Intro](/articles/surface-view-intro.md)
-* [Surface View - Playing video](/articles/surface-view-play-video.md)
-* [Surface View - Video Cropping](/articles/surface-view-video-cropping.md)
+* [Texture View - Intro](/articles/surface-view-intro.md)
+* [Texture View - Playing video](/articles/surface-view-play-video.md)
+* [Texture View - Video Cropping](/articles/surface-view-video-cropping.md)
 * [Android Login Screen Checklist](/articles/Android%20Login%20Screen%20Checklist.md)
 
 ### List of all my reminders
