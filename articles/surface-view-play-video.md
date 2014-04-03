@@ -1,6 +1,6 @@
 ![Screenshot][5]
 
-### Surface View
+### Texture View
 - [Part 1 - Intro][7]
 - [Part 2 - Playing video][8]
 - [Part 3 - Video Cropping][9]
