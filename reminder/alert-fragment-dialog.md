@@ -8,10 +8,27 @@ public class SampleActivity extends Activity
     
     private static final int DIALOG_ID_SIGN_OUT = 1000;
     
+    // "Yes / No" dialog sample
     private void showSignOutDialog() {
         String title = "Alert";
-        String message = "Do you want to sign out?;
-        AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_YES_NO)
+        String message = "Do you want to sign out?";
+        AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_YES_NO, DIALOG_ID_SIGN_OUT)
+                .showAllowStateLoss(getFragmentManager()); // prevents IllegalStateException crash
+    }
+    
+    // "Ok / Cancel" dialog sample
+    private void showQuitDialog() {
+        String title = "Alert";
+        String message = "Do you really wish to quit?";
+        AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_OK_CANCEL)
+                .showAllowStateLoss(getFragmentManager()); // prevents IllegalStateException crash
+    }
+    
+    // "Ok" dialog sample
+    private void showQuitDialog() {
+        String title = "Alert";
+        String message = "Your message was sent";
+        AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_OK)
                 .showAllowStateLoss(getFragmentManager()); // prevents IllegalStateException crash
     }
     
