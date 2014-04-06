@@ -2,6 +2,7 @@ Android helper class which extends `DialogFragment`.
 
 **Example**
 
+```java
 public class SampleActivity extends Activity
         implements AlertFragmentDialog.AlertDialogListener {
     
@@ -16,16 +17,24 @@ public class SampleActivity extends Activity
     
     @Override
     public void onPositiveButtonClicked(int dialogId) {
-        
+       switch (dialogId) {
+            case DIALOG_ID_SIGN_OUT:
+                // sign out dialog yes button was pressed
+                break;
+        } 
     }
 
     @Override
     public void onNegativeButtonClicked(int dialogId) {
-        
+        switch (dialogId) {
+            case DIALOG_ID_SIGN_OUT:
+                // sign out dialog no button was pressed
+                break;
+        }
     }
 
 }
-
+```
 
 **Source**
 
