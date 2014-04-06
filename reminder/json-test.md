@@ -52,4 +52,4 @@ String optString(JSONObject jsonObject, String key) {
 | :-------- | :--------| :-- |
 | Key exist and has correct value  | `optString(jsonObject, "title1")` | `null`  |
 | Key exist but value is null      | `optString(jsonObject, "title2")` | `null`  |
-| Key doesn't exist                | `optString(jsonObject, "title4")` | `null`  |
+| Key doesn't exist                | `optString(jsonObject, "title3")` | `null`  |
