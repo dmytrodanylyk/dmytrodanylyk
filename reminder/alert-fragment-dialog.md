@@ -7,8 +7,9 @@ public class SampleActivity extends Activity
         implements AlertFragmentDialog.AlertDialogListener {
     
     private static final int DIALOG_ID_SIGN_OUT = 1000;
+    private static final int DIALOG_ID_QUIT = 2000;
     
-    // "Yes / No" dialog sample
+    // "Yes / No" dialog sample, id is used in listener for identification
     private void showSignOutDialog() {
         String title = "Alert";
         String message = "Do you want to sign out?";
@@ -16,16 +17,16 @@ public class SampleActivity extends Activity
                 .showAllowStateLoss(getFragmentManager()); // prevents IllegalStateException crash
     }
     
-    // "Ok / Cancel" dialog sample
+    // "Ok / Cancel" dialog sample, id is used in listener for identification
     private void showQuitDialog() {
         String title = "Alert";
         String message = "Do you really wish to quit?";
-        AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_OK_CANCEL)
+        AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_OK_CANCEL, DIALOG_ID_QUIT)
                 .showAllowStateLoss(getFragmentManager()); // prevents IllegalStateException crash
     }
     
-    // "Ok" dialog sample
-    private void showQuitDialog() {
+    // "Ok" dialog sample, id is ignored
+    private void showMessageDialog() {
         String title = "Alert";
         String message = "Your message was sent";
         AlertFragmentDialog.newInstance(title, message, AlertFragmentDialog.STATE_OK)
@@ -38,6 +39,9 @@ public class SampleActivity extends Activity
             case DIALOG_ID_SIGN_OUT:
                 // sign out dialog yes button was pressed
                 break;
+           case DIALOG_ID_QUIT:
+                // quit dialog ok button was pressed
+                break;
         } 
     }
 
@@ -46,6 +50,9 @@ public class SampleActivity extends Activity
         switch (dialogId) {
             case DIALOG_ID_SIGN_OUT:
                 // sign out dialog no button was pressed
+                break;
+            case DIALOG_ID_QUIT:
+                // quit dialog cancel button was pressed
                 break;
         }
     }
