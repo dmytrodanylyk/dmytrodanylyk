@@ -1,4 +1,4 @@
-Android helper class which extends `DialogFragment`.
+Android helper class which extends `DialogFragment` and add additional methods to create different dialogs.
 
 **Example**
 
