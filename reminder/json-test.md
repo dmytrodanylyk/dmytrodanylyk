@@ -40,7 +40,7 @@ Sample demonstrates some notes about parsing JSON object.
 
 **Сonclusion**
 
-When using `optValue` method of `JSONObject` always set `fallback` parameters. For parsing `String` it is prefereable to use following methods, which ensure that you will never have `"null"` value or empty string `""`.
+When using `optValue` method of `JSONObject` always set `fallback` parameters. For parsing `String` it is preferable to use following methods, which ensure that you will never have `"null"` value or empty string `""`.
 
 ```java
 String optString(JSONObject jsonObject, String key) {
