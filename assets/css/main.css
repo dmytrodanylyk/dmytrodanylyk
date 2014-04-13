@@ -1,41 +1,41 @@
 body {
     padding: 15px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 17px;
     color: #5b6064;
     font-weight: 400;
     background-color: #F9F9F9;
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-    font-size: 52px;
-    color: #222;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 64px;
+    color: #333;
 }
 
 h2 {
     margin-top: 50px;
     margin-bottom: 25px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 22px;
     color: #222;
 }
 
 h4 {
     margin: 30px 0 15px 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 h5 {
     margin: 30px 0 15px 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 p {
@@ -45,7 +45,7 @@ p {
 
 a {
     color: #33B5E5;
-    font-style: italic;
+    /*font-style: italic;*/
     text-decoration: none;
 }
 
@@ -72,7 +72,7 @@ p.blue {
 
 p.intro {
     margin: 20px 0 20px 0;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 300;
 }
 
@@ -85,7 +85,7 @@ hr {
 
 .date {
     color: #999;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 300;
     float: left;
 }
