@@ -257,14 +257,14 @@ public class LoadingDialogFragment extends DialogFragment {
 
         ProgressDialog dialog = new ProgressDialog(getActivity());
         dialog.setMessage(getString(R.string.Loading));
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                triggerActivityListener();
-            }
-        });
 
         return dialog;
+    }
+    
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        triggerActivityListener();
     }
 
     private void triggerActivityListener() {
