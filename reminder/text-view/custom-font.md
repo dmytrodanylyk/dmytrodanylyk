@@ -89,6 +89,8 @@ res/values/styles/attrs.xml
 ```
 
 res/values/styles/fonts.xml
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Roboto_Bold">Roboto-Bold.ttf</string>
@@ -96,8 +98,6 @@ res/values/styles/fonts.xml
     <string name="Roboto_Light">Roboto-Light.ttf</string>
     <string name="Roboto_Regular">Roboto-Regular.ttf</string>
 </resources>
-```xml
-
 ```
 
 usage.xml
