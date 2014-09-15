@@ -1,3 +1,4 @@
+```java
 public final class DeviceUtils {
 	
 	public static Display getDisplay(Context context) {
@@ -40,3 +41,4 @@ public final class DeviceUtils {
 		return statusBarHeight;
 	}
 }
+```
