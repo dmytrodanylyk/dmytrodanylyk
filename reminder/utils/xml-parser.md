@@ -1,4 +1,4 @@
-``java
+```java
 InputStream inputStream = ...;
 RootElement root = new RootElement("root_element");
 Element dict = root.getChild("child_element");
