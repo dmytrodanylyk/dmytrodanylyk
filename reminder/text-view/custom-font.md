@@ -77,7 +77,7 @@ public class TypefaceHolder {
 }
 ```
 
-res/values/styles/attrs.xml
+res/values/attrs.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,7 +88,7 @@ res/values/styles/attrs.xml
 </resources>
 ```
 
-res/values/styles/fonts.xml
+res/values/fonts.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
