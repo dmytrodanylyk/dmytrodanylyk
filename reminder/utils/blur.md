@@ -1,3 +1,4 @@
+```java
 import android.graphics.Bitmap;
 
 public class BlurUtils {
@@ -223,3 +224,4 @@ public class BlurUtils {
 		return (bitmap);
 	}
 }
+```
