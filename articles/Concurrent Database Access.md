@@ -1,6 +1,8 @@
 ![Concurrent Database Access][6]
 
-Concurrent Database Access
+
+
+Concurrent Database Access @Depricated @see [link](http://dmytrodanylyk.com/pages/blog/concurrent-database.html)
 --------------------------
 
 I wrote small article which describe how to make access to your android database thread safe. Sample project is available [here][7].
