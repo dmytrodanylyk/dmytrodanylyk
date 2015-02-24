@@ -152,12 +152,12 @@ public class DatabaseManager {
 ```
 
 And use it as follows.
-
+```java
     SQLiteDatabase database = DatabaseManager.getInstance().openDatabase();
     database.insert(...);
     // database.close(); Don't close it directly!
     DatabaseManager.getInstance().closeDatabase(); // correct way
-
+```
 Every time you need database you should call `openDatabase()` method of `DatabaseManager` class. Inside this method, we have a counter, which indicate how many times database is opened. If it equals to one, it means we need to create new database, if not, database is already created.
 
 The same happens in `closeDatabase()` method. Every time we call this method, counter is decreased, whenever it goes to zero, we are closing database.
