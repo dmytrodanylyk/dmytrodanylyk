@@ -1,0 +1,43 @@
+# Project information
+site_name: Dmytro Danylyk
+site_description: 'Personal Site'
+site_author: 'Dmytro Danylyk'
+site_url: 'https://dmytrodanylyk.com'
+
+# Repository
+repo_name: 'GitHub'
+repo_url: 'https://github.com/dmytrodanylyk/dmytrodanylyk'
+
+# Copyright
+copyright: 'Copyright &copy; 2017 - 2018 Dmytro Danylyk'
+
+# Documentation and theme
+theme_dir: 'material'
+site_favicon: 'images/favicon.ico'
+
+# Options
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/dmytrodanylyk'
+    - type: 'twitter'
+      link: 'https://twitter.com/dmytrodanylyk'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/in/dmytrodanylyk'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - meta
+  - codehilite
+  - toc(permalink=true)
+
+# Google Analytics
+google_analytics:
+  - 'UA-4482495-4'
+  - 'auto'
+
+pages:
+    - About: index.md
+    - Contact: contact.md
+    - Portfolio: portfolio.md

@@ -1,0 +1,12 @@
+language: python
+python:
+- '2.7'
+install: pip install -q -r requirements.txt
+script:
+  - mkdocs build
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: $FIREBASE_API_TOKEN
+  project: "dmytrodanylyk"

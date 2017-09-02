@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "site",
+    "ignore": [
+      "firebase.json"
+    ],
+
+    "redirects": [
+        {
+          "source" : "/components/",
+          "destination" : "/components/buttons",
+          "type" : 301
+        }
+    ]
+  }
+}
