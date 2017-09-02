@@ -39,5 +39,8 @@ google_analytics:
 
 pages:
     - About: index.md
+    - Articles:
+        - Concurrent database access: articles/concurrent-database.md
+        - Lazy data loading from SQLite: articles/lazy-sqlite.md
     - Contact: contact.md
     - Portfolio: portfolio.md
