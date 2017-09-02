@@ -7,8 +7,28 @@
 
     "redirects": [
         {
-          "source" : "/components/",
-          "destination" : "/components/buttons",
+          "source" : "/android-data-sync-part-2/",
+          "destination" : "/articles/data-sync-part2/",
+          "type" : 301
+        },
+        {
+          "source" : "/concurrent-database-access/",
+          "destination" : "/articles/concurrent-database//",
+          "type" : 301
+        },
+        {
+          "source" : "/lazy-data-loading-from-sqlite/",
+          "destination" : "/articles/lazy-sqlite/",
+          "type" : 301
+        },
+        {
+          "source" : "/android-data-sync-part-2/",
+          "destination" : "/articles/data-sync-part2/",
+          "type" : 301
+        },
+        {
+          "source" : "/about/",
+          "destination" : "/",
           "type" : 301
         }
     ]

@@ -1,5 +1,3 @@
-
-<div>
 <table bordercolor="#FFFFFF">
    <tr>
     <td style=" background-color: #FFFFFF;">
@@ -10,13 +8,8 @@
 <img padding=0,5,0,0 src="/images/image-2.gif" padding=40px> </td>
    </tr>
 </table>
-<table bordercolor="#FFFFFF">
-   <tr>
-    <td style="text-align:center; background-color: #FFFFFF;">Data appears immediately</td>
-    <td style="text-align:center; background-color: #FFFFFF;">Data appears with delay</td>
-   </tr>
- </table>
-</div>
+
+Data appears immediately / Data appears with delay
 
 Lazy loading data from *SQLite* means parsing data from *Cursor* on the fly when you need it (on-demand). You may wonder why you need this? To answer this question let’s see some benchmarks and sample first.
 
@@ -24,7 +17,7 @@ Lazy loading data from *SQLite* means parsing data from *Cursor* on the fly when
 
 In our *SQLite* database we have 10 000 news entities, which must be displayed in `RecyclerView`.
 
-```prettyprint
+```java
 new Thread(new Runnable() {
     @Override
     public void run() {
@@ -59,7 +52,7 @@ Here is our plan. When query return `Cursor` object we will create and return `c
 
 Let's start by defining simple data object class - `User`.
 
-```prettyprint
+```java
 public class User {
 
     private long id;
@@ -81,7 +74,7 @@ public class User {
 
 Base proxy class.
 
-```prettyprint
+```java
 abstract class CursorItemProxy {
 
     private Cursor mCursor;
@@ -105,7 +98,7 @@ abstract class CursorItemProxy {
 
 This is where the magic happens. `UserProxy` class extends `CursorItemProxy` and has reference to `Cursor`, index and `User` object. If name inside `User` object is empty - we parse data from `Cursor` and cache it. Next time - cached name from `User` object is returned.
 
-```prettyprint
+```java
 public class UserProxy extends CursorItemProxy {
 
     private User mUser;
@@ -132,7 +125,7 @@ public class UserProxy extends CursorItemProxy {
 
 Now it's time to add select method to `UserDAO` class. Note that `manageProxyCursor()` method creates `UserProxy` objects and passes `Cursor` and cursor position for later use.
 
-```prettyprint
+```java
 public class UserDAO {
 
     private Database mDatabase;
@@ -181,7 +174,7 @@ Finally you can load and display data. Please keep in mind the following:
 - Make sure to close `Cursor` to avoid leaks. See `cleanUpDatabase()` method.
 - Since query takes small amount of time it is made in UI thread.
 
-```prettyprint
+```java
 public class UserListActivity extends ListActivity {
 
     private ArrayAdapter<UserProxy> mAdapter;
@@ -226,7 +219,7 @@ You may noticed that `selectAllUserProxy()` method generates `cursor.count()` em
 
 To fix this issue we can create custom collection which will create objects only during first reference.
 
-```prettyprint
+```java
 public class LazyList<T> extends ArrayList<T> {
 
     private final Cursor mCursor;
@@ -279,7 +272,7 @@ public class LazyList<T> extends ArrayList<T> {
 
 Now add another method to `UserDAO` class. Note `LazyList.ItemFactory.create(...)` method is used to define how your object is parsed from `Cursor`.
 
-```prettyprint
+```java
 public LazyList<User> selectAllLazy() {
 	Cursor cursor = mDatabase.rawQuery(mContext.getString(R.string.select_all_users), null);
 	return new LazyList<>(cursor, new LazyList.ItemFactory<User>() {
@@ -298,7 +291,7 @@ public LazyList<User> selectAllLazy() {
 
 Now you can load and display data, similar to the method above.
 
-```prettyprint
+```java
 public class UserListActivity3 extends ListActivity {
 
     private ArrayAdapter<User> mAdapter;

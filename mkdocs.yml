@@ -40,6 +40,8 @@ google_analytics:
 pages:
     - About: index.md
     - Articles:
+        - Android Data Sync - Part 1: articles/data-sync-part1.md
+        - Android Data Sync - Part 2: articles/data-sync-part2.md
         - Concurrent database access: articles/concurrent-database.md
         - Lazy data loading from SQLite: articles/lazy-sqlite.md
     - Contact: contact.md

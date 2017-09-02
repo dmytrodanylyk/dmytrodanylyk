@@ -1,12 +1,12 @@
 Assuming you have your own [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html).
 
-```prettyprint
+```java
 public class DatabaseHelper extends SQLiteOpenHelper { ... }
 ```
 
 Now you want to write data to database in separate threads.
 
-```prettyprint
+```java
  // Thread 1
  Context context = getApplicationContext();
  DatabaseHelper helper = new DatabaseHelper(context);
@@ -24,7 +24,7 @@ Now you want to write data to database in separate threads.
 
 You will get following message in your *logcat* and one of your changes will not be written.
 
-```prettyprint
+```java
 android.database.sqlite.SQLiteDatabaseLockedException: database is locked (code 5)
 ```
 
@@ -34,7 +34,7 @@ This is happening because every time you create new `SQLiteOpenHelper` object yo
 
 Let’s make singleton class `DatabaseManager` which will hold and return single `SQLiteOpenHelper` object.
 
-```prettyprint
+```java
 public class DatabaseManager {
 
     private static DatabaseManager instance;
@@ -65,7 +65,7 @@ public class DatabaseManager {
 
 Updated code which write data to database in separate threads will look like this.
 
-```prettyprint
+```java
 // In your application class
 DatabaseManager.initializeInstance(new DatabaseHelper());
 
@@ -84,7 +84,7 @@ database.close();
 
 This will bring you another crash.
 
-```prettyprint
+```java
 java.lang.IllegalStateException: attempt to re-open an already-closed object: SQLiteDatabase
 ```
 
@@ -92,7 +92,7 @@ Since we are using only one database connection, method `getDatabase()` return s
 
 We need to make sure no-one is using database and only then close it. Some folks on [stackoveflow](http://stackoverflow.com/) recommended to never close your *SQLiteDatabase*. This will honor you with following logcat message. So I don't think this is good idea at all.
 
-```prettyprint
+```java
 Leak found
 Caused by: java.lang.IllegalStateException: SQLiteDatabase created and never closed
 ```
@@ -101,7 +101,7 @@ Caused by: java.lang.IllegalStateException: SQLiteDatabase created and never clo
 
 One possible solution is to make counter to track opening / closing database connection.
 
-```prettyprint
+```java
 public class DatabaseManager {
 
     private AtomicInteger mOpenCounter = new AtomicInteger();
@@ -146,7 +146,7 @@ public class DatabaseManager {
 
 And use it as follows.
 
-```prettyprint
+```java
 SQLiteDatabase database = DatabaseManager.getInstance().openDatabase();
 database.insert(...);
 // database.close(); Don't close it directly!
