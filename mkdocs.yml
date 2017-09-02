@@ -44,5 +44,6 @@ pages:
         - Android Data Sync - Part 2: articles/data-sync-part2.md
         - Concurrent database access: articles/concurrent-database.md
         - Lazy data loading from SQLite: articles/lazy-sqlite.md
+    - Speaker: speaker-timeline.md
     - Contact: contact.md
     - Portfolio: portfolio.md
